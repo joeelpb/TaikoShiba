@@ -1467,13 +1467,13 @@ namespace TJAPlayer3
 		public void t書き出し( string iniファイル名 )
 		{
 			StreamWriter sw = new StreamWriter( iniファイル名, false, Encoding.GetEncoding( "Shift_JIS" ) );
-			sw.WriteLine( ";-------------------" );
-			
-			#region [ System ]
-			sw.WriteLine( "[System]" );
-			sw.WriteLine();
+			//sw.WriteLine( ";-------------------" );
 
-#if false		// #23625 2011.1.11 Config.iniからダメージ/回復値の定数変更を行う場合はここを有効にする 087リリースに合わせ機能無効化
+			#region [ System ]
+			//sw.WriteLine( "[System]" );
+			//sw.WriteLine();
+
+#if false        // #23625 2011.1.11 Config.iniからダメージ/回復値の定数変更を行う場合はここを有効にする 087リリースに合わせ機能無効化
 	//------------------------------
 			sw.WriteLine("; ライフゲージのパラメータ調整(調整完了後削除予定)");
 			sw.WriteLine("; GaugeFactorD: ドラムのPerfect, Great,... の回復量(ライフMAXを1.0としたときの値を指定)");
@@ -1486,18 +1486,18 @@ namespace TJAPlayer3
 	//------------------------------
 #endif
 			#region [ Version ]
-			sw.WriteLine( "; リリースバージョン" );
-			sw.WriteLine( "; Release Version." );
-			sw.WriteLine( "Version={0}", TJAPlayer3.VERSION );
-			sw.WriteLine();
+			//sw.WriteLine( "; リリースバージョン" );
+			//sw.WriteLine( "; Release Version." );
+			//sw.WriteLine( "Version={0}", TJAPlayer3.VERSION );
+			//sw.WriteLine();
 			#endregion
 			#region [ TJAPath ]
-			sw.WriteLine( "; 譜面ファイルが格納されているフォルダへのパス。" );
-			sw.WriteLine( @"; セミコロン(;)で区切ることにより複数のパスを指定できます。（例: d:\tja\;e:\tja2\）" );
-			sw.WriteLine( "; Pathes for TJA data." );
-			sw.WriteLine( @"; You can specify many pathes separated with semicolon(;). (e.g. d:\tja\;e:\tja2\)" );
+			//sw.WriteLine( "; 譜面ファイルが格納されているフォルダへのパス。" );
+			//sw.WriteLine( @"; セミコロン(;)で区切ることにより複数のパスを指定できます。（例: d:\tja\;e:\tja2\）" );
+			//sw.WriteLine( "; Pathes for TJA data." );
+			//sw.WriteLine( @"; You can specify many pathes separated with semicolon(;). (e.g. d:\tja\;e:\tja2\)" );
 			sw.WriteLine( "TJAPath={0}", this.str曲データ検索パス );
-			sw.WriteLine();
+			//sw.WriteLine();
 			#endregion
 			#region [ スキン関連 ]
 			#region [ Skinパスの絶対パス→相対パス変換 ]
@@ -1511,63 +1511,63 @@ namespace TJAPlayer3
 			Uri uriPath = new Uri( System.IO.Path.Combine( this.strSystemSkinSubfolderFullName, "." + System.IO.Path.DirectorySeparatorChar ) );
 			string relPath = uriRoot.MakeRelativeUri( uriPath ).ToString();				// 相対パスを取得
 			relPath = System.Web.HttpUtility.UrlDecode( relPath );						// デコードする
-			relPath = relPath.Replace( '/', System.IO.Path.DirectorySeparatorChar );	// 区切り文字が\ではなく/なので置換する
+			relPath = relPath.Replace( '/', System.IO.Path.DirectorySeparatorChar );    // 区切り文字が\ではなく/なので置換する
 			#endregion
-			sw.WriteLine( "; 使用するSkinのフォルダ名。" );
-			sw.WriteLine( "; 例えば System\\Default\\Graphics\\... などの場合は、SkinPath=.\\Default\\ を指定します。" );
-			sw.WriteLine( "; Skin folder path." );
-			sw.WriteLine( "; e.g. System\\Default\\Graphics\\... -> Set SkinPath=.\\Default\\" );
+			//sw.WriteLine( "; 使用するSkinのフォルダ名。" );
+			//sw.WriteLine( "; 例えば System\\Default\\Graphics\\... などの場合は、SkinPath=.\\Default\\ を指定します。" );
+			//sw.WriteLine( "; Skin folder path." );
+			//sw.WriteLine( "; e.g. System\\Default\\Graphics\\... -> Set SkinPath=.\\Default\\" );
 			sw.WriteLine( "SkinPath={0}", relPath );
-			sw.WriteLine();
-            sw.WriteLine("; 事前画像描画機能を使うかどうか。(0: OFF, 1: ON)");
-            sw.WriteLine("; Use pre-textures render.");
-            sw.WriteLine("{0}={1}", nameof(FastRender), FastRender ? 1 : 0);
-            sw.WriteLine();
-            #endregion
-            #region [ Window関連 ]
-            sw.WriteLine( "; 画面モード(0:ウィンドウ, 1:全画面)" );
-			sw.WriteLine( "; Screen mode. (0:Window, 1:Fullscreen)" );
+			//sw.WriteLine();
+			//sw.WriteLine("; 事前画像描画機能を使うかどうか。(0: OFF, 1: ON)");
+			//sw.WriteLine("; Use pre-textures render.");
+			//sw.WriteLine("{0}={1}", nameof(FastRender), FastRender ? 1 : 0);
+			//sw.WriteLine();
+			#endregion
+			#region [ Window関連 ]
+			//.WriteLine( "; 画面モード(0:ウィンドウ, 1:全画面)" );
+			//sw.WriteLine( "; Screen mode. (0:Window, 1:Fullscreen)" );
 			sw.WriteLine( "FullScreen={0}", this.b全画面モード ? 1 : 0 );
-            sw.WriteLine();
-			sw.WriteLine("; ウインドウモード時の画面幅");				// #23510 2010.10.31 yyagi add
-			sw.WriteLine("; A width size in the window mode.");			//
+			//sw.WriteLine();
+			//sw.WriteLine("; ウインドウモード時の画面幅");				// #23510 2010.10.31 yyagi add
+			//sw.WriteLine("; A width size in the window mode.");			//
 			sw.WriteLine("WindowWidth={0}", this.nウインドウwidth);		//
-			sw.WriteLine();												//
-			sw.WriteLine("; ウインドウモード時の画面高さ");				//
-			sw.WriteLine("; A height size in the window mode.");		//
+			//sw.WriteLine();												//
+			//sw.WriteLine("; ウインドウモード時の画面高さ");				//
+			//sw.WriteLine("; A height size in the window mode.");		//
 			sw.WriteLine("WindowHeight={0}", this.nウインドウheight);	//
-			sw.WriteLine();												//
-			sw.WriteLine( "; ウィンドウモード時の位置X" );				            // #30675 2013.02.04 ikanick add
-			sw.WriteLine( "; X position in the window mode." );			            //
+			//sw.WriteLine();												//
+			//sw.WriteLine( "; ウィンドウモード時の位置X" );
+			//sw.WriteLine( "; X position in the window mode." );			            //
 			sw.WriteLine( "WindowX={0}", this.n初期ウィンドウ開始位置X );			//
-			sw.WriteLine();											            	//
-			sw.WriteLine( "; ウィンドウモード時の位置Y" );			            	//
-			sw.WriteLine( "; Y position in the window mode." );	            	    //
-			sw.WriteLine( "WindowY={0}", this.n初期ウィンドウ開始位置Y );   		//
-			sw.WriteLine();												            //
+			//sw.WriteLine();											            	//
+			//sw.WriteLine( "; ウィンドウモード時の位置Y" );			            	//
+			//sw.WriteLine( "; Y position in the window mode." );	            	    //
+			sw.WriteLine( "WindowY={0}", this.n初期ウィンドウ開始位置Y );          //
+																		//sw.WriteLine();												            //
 
-			sw.WriteLine( "; ウインドウをダブルクリックした時にフルスクリーンに移行するか(0:移行しない,1:移行する)" );	// #26752 2011.11.27 yyagi
-			sw.WriteLine( "; Whether double click to go full screen mode or not.(0:No, 1:Yes)" );		//
+			//sw.WriteLine( "; ウインドウをダブルクリックした時にフルスクリーンに移行するか(0:移行しない,1:移行する)" );	// #26752 2011.11.27 yyagi
+			//sw.WriteLine( "; Whether double click to go full screen mode or not.(0:No, 1:Yes)" );		//
 			sw.WriteLine( "DoubleClickFullScreen={0}", this.bIsAllowedDoubleClickFullscreen? 1 : 0);	//
-			sw.WriteLine();																				//
-			sw.WriteLine( "; ALT+SPACEのメニュー表示を抑制するかどうか(0:抑制する 1:抑制しない)" );		// #28200 2012.5.1 yyagi
-			sw.WriteLine( "; Whether ALT+SPACE menu would be masked or not.(0=masked 1=not masked)" );	//
+			//sw.WriteLine();																				//
+		    //sw.WriteLine( "; ALT+SPACEのメニュー表示を抑制するかどうか(0:抑制する 1:抑制しない)" );		// #28200 2012.5.1 yyagi
+			//sw.WriteLine( "; Whether ALT+SPACE menu would be masked or not.(0=masked 1=not masked)" );	//
 			sw.WriteLine( "EnableSystemMenu={0}", this.bIsEnabledSystemMenu? 1 : 0 );					//
-			sw.WriteLine();																				//
-			sw.WriteLine( "; 非フォーカス時のsleep値[ms]" );	    			    // #23568 2011.11.04 ikanick add
-			sw.WriteLine( "; A sleep time[ms] while the window is inactive." );	//
+			//sw.WriteLine();																				//
+			//sw.WriteLine( "; 非フォーカス時のsleep値[ms]" );	    			    // #23568 2011.11.04 ikanick add
+			//sw.WriteLine( "; A sleep time[ms] while the window is inactive." );	//
 			sw.WriteLine( "BackSleep={0}", this.n非フォーカス時スリープms );		// そのまま引用（苦笑）
-			sw.WriteLine();                                                             //
+			//sw.WriteLine();                                                             //
 			#endregion
 			#region [ NamePlate関連 ]
-			sw.WriteLine("ネームプレートに表示する名前");//strNamePlateName
+			/*sw.WriteLine("ネームプレートに表示する名前");//strNamePlateName
 			sw.WriteLine("; The name to display on the nameplate");
 			sw.WriteLine("NamePlateName={0}", this.strNamePlateName);
 			sw.WriteLine();
 			sw.WriteLine("ネームプレートに表示する称号");
 			sw.WriteLine("; The title to display on the nameplate");
 			sw.WriteLine("NamePlateTitle={0}", this.strNamePlateTitle);
-			sw.WriteLine();
+			sw.WriteLine();*/
 			#endregion
 			#region [ フォント ]
 			//sw.WriteLine("; フォントレンダリングに使用するフォント名");
@@ -1578,45 +1578,45 @@ namespace TJAPlayer3
             //sw.WriteLine("; Font name used for font rendering of Box text");
             //sw.WriteLine("BoxFontName={0}", this.BoxFontName);
             sw.WriteLine();
-            #endregion
-            #region [ フレーム処理関連(VSync, フレーム毎のsleep) ]
-            sw.WriteLine("; 垂直帰線同期(0:OFF,1:ON)");
+			#endregion
+			#region [ フレーム処理関連(VSync, フレーム毎のsleep) ]
+			//sw.WriteLine("; 垂直帰線同期(0:OFF,1:ON)");
 			sw.WriteLine( "VSyncWait={0}", this.b垂直帰線待ちを行う ? 1 : 0 );
-            sw.WriteLine();
-			sw.WriteLine( "; フレーム毎のsleep値[ms] (-1でスリープ無し, 0以上で毎フレームスリープ。動画キャプチャ等で活用下さい)" );	// #xxxxx 2011.11.27 yyagi add
-			sw.WriteLine( "; A sleep time[ms] per frame." );							//
-			sw.WriteLine( "SleepTimePerFrame={0}", this.nフレーム毎スリープms );		//
-			sw.WriteLine();                                                             //
-            #endregion
-            
-            #region [ WASAPI/ASIO関連 ]
-            sw.WriteLine( "; サウンド出力方式(0=ACM(って今はまだDirectSoundですが), 1=ASIO, 2=WASAPI)" );
-			sw.WriteLine( "; WASAPIはVista以降のOSで使用可能。推奨方式はWASAPI。" );
-			sw.WriteLine( "; なお、WASAPIが使用不可ならASIOを、ASIOが使用不可ならACMを使用します。" );
-			sw.WriteLine( "; Sound device type(0=ACM, 1=ASIO, 2=WASAPI)" );
-			sw.WriteLine( "; WASAPI can use on Vista or later OSs." );
-			sw.WriteLine( "; If WASAPI is not available, DTXMania try to use ASIO. If ASIO can't be used, ACM is used." );
+			//sw.WriteLine();
+			//sw.WriteLine( "; フレーム毎のsleep値[ms] (-1でスリープ無し, 0以上で毎フレームスリープ。動画キャプチャ等で活用下さい)" );	// #xxxxx 2011.11.27 yyagi add
+			//sw.WriteLine( "; A sleep time[ms] per frame." );							//
+			//sw.WriteLine( "SleepTimePerFrame={0}", this.nフレーム毎スリープms );		//
+			//sw.WriteLine();                                                             //
+			#endregion
+
+			#region [ WASAPI/ASIO関連 ]
+			//sw.WriteLine( "; サウンド出力方式(0=ACM(って今はまだDirectSoundですが), 1=ASIO, 2=WASAPI)" );
+			//sw.WriteLine( "; WASAPIはVista以降のOSで使用可能。推奨方式はWASAPI。" );
+			//sw.WriteLine( "; なお、WASAPIが使用不可ならASIOを、ASIOが使用不可ならACMを使用します。" );
+			//sw.WriteLine( "; Sound device type(0=ACM, 1=ASIO, 2=WASAPI)" );
+			//sw.WriteLine( "; WASAPI can use on Vista or later OSs." );
+			//sw.WriteLine( "; If WASAPI is not available, DTXMania try to use ASIO. If ASIO can't be used, ACM is used." );
 			sw.WriteLine( "SoundDeviceType={0}", (int) this.nSoundDeviceType );
-			sw.WriteLine();
+			//sw.WriteLine();
 
-			sw.WriteLine( "; WASAPI使用時のサウンドバッファサイズ" );
-			sw.WriteLine( "; (0=デバイスに設定されている値を使用, 1～9999=バッファサイズ(単位:ms)の手動指定" );
-			sw.WriteLine( "; WASAPI Sound Buffer Size." );
-			sw.WriteLine( "; (0=Use system default buffer size, 1-9999=specify the buffer size(ms) by yourself)" );
+			//sw.WriteLine( "; WASAPI使用時のサウンドバッファサイズ" );
+			//sw.WriteLine( "; (0=デバイスに設定されている値を使用, 1～9999=バッファサイズ(単位:ms)の手動指定" );
+			//sw.WriteLine( "; WASAPI Sound Buffer Size." );
+			//sw.WriteLine( "; (0=Use system default buffer size, 1-9999=specify the buffer size(ms) by yourself)" );
 			sw.WriteLine( "WASAPIBufferSizeMs={0}", (int) this.nWASAPIBufferSizeMs );
-			sw.WriteLine();
+			//sw.WriteLine();
 
-			sw.WriteLine( "; ASIO使用時のサウンドデバイス" );
-			sw.WriteLine( "; 存在しないデバイスを指定すると、DTXManiaが起動しないことがあります。" );
-			sw.WriteLine( "; Sound device used by ASIO." );
-			sw.WriteLine( "; Don't specify unconnected device, as the DTXMania may not bootup." );
+			//sw.WriteLine( "; ASIO使用時のサウンドデバイス" );
+			////sw.WriteLine( "; 存在しないデバイスを指定すると、DTXManiaが起動しないことがあります。" );
+			//sw.WriteLine( "; Sound device used by ASIO." );
+			//sw.WriteLine( "; Don't specify unconnected device, as the DTXMania may not bootup." );
 			string[] asiodev = CEnumerateAllAsioDevices.GetAllASIODevices();
 			for ( int i = 0; i < asiodev.Length; i++ )
 			{
 				sw.WriteLine( "; {0}: {1}", i, asiodev[ i ] );
 			}
 			sw.WriteLine( "ASIODevice={0}", (int) this.nASIODevice );
-			sw.WriteLine();
+			//sw.WriteLine();
 
 			//sw.WriteLine( "; ASIO使用時のサウンドバッファサイズ" );
 			//sw.WriteLine( "; (0=デバイスに設定されている値を使用, 1～9999=バッファサイズ(単位:ms)の手動指定" );
@@ -1631,11 +1631,11 @@ namespace TJAPlayer3
 			//sw.WriteLine( "DynamicBassMixerManagement={0}", this.bDynamicBassMixerManagement ? 1 : 0 );
 			//sw.WriteLine();
 
-			sw.WriteLine( "; WASAPI/ASIO時に使用する演奏タイマーの種類" );
-			sw.WriteLine( "; Playback timer used for WASAPI/ASIO" );
-			sw.WriteLine( "; (0=FDK Timer, 1=System Timer)" );
+			//sw.WriteLine( "; WASAPI/ASIO時に使用する演奏タイマーの種類" );
+			//sw.WriteLine( "; Playback timer used for WASAPI/ASIO" );
+			//sw.WriteLine( "; (0=FDK Timer, 1=System Timer)" );
 			sw.WriteLine( "SoundTimerType={0}", this.bUseOSTimer ? 1 : 0 );
-			sw.WriteLine();
+			//sw.WriteLine();
 
 			//sw.WriteLine( "; 全体ボリュームの設定" );
 			//sw.WriteLine( "; (0=無音 ～ 100=最大。WASAPI/ASIO時のみ有効)" );
@@ -1645,31 +1645,31 @@ namespace TJAPlayer3
 			//sw.WriteLine();
 
 			#endregion
-			sw.WriteLine( "; 背景画像の半透明割合(0:透明～255:不透明)" );
-			sw.WriteLine( "; Transparency for background image in playing screen.(0:tranaparent - 255:no transparent)" );
-			sw.WriteLine( "BGAlpha={0}", this.nBGAlpha );
-			sw.WriteLine();
-			sw.WriteLine( "; ゲージゼロでSTAGE FAILED (0:OFF, 1:ON)" );
+			//sw.WriteLine( "; 背景画像の半透明割合(0:透明～255:不透明)" );
+			//sw.WriteLine( "; Transparency for background image in playing screen.(0:tranaparent - 255:no transparent)" );
+			//sw.WriteLine( "BGAlpha={0}", this.nBGAlpha );
+			//sw.WriteLine();
+			//sw.WriteLine( "; ゲージゼロでSTAGE FAILED (0:OFF, 1:ON)" );
 			sw.WriteLine( "StageFailed={0}", this.bSTAGEFAILED有効 ? 1 : 0 );
-			sw.WriteLine();
+			//sw.WriteLine();
 			#region [ AVI/BGA ]
-			sw.WriteLine( "; AVIの表示(0:OFF, 1:ON)" );
+			//sw.WriteLine( "; AVIの表示(0:OFF, 1:ON)" );
 			sw.WriteLine( "AVI={0}", this.bAVI有効 ? 1 : 0 );
-			sw.WriteLine();
-			sw.WriteLine( "; BGAの表示(0:OFF, 1:ON)" );
+			//sw.WriteLine();
+			//sw.WriteLine( "; BGAの表示(0:OFF, 1:ON)" );
 			sw.WriteLine( "BGA={0}", this.bBGA有効 ? 1 : 0 );
-			sw.WriteLine();
-			sw.WriteLine( "; 動画表示モード( 0:表示しない, 1:背景のみ, 2:窓表示のみ, 3:両方)" );
+			//sw.WriteLine();
+			//sw.WriteLine( "; 動画表示モード( 0:表示しない, 1:背景のみ, 2:窓表示のみ, 3:両方)" );
 			sw.WriteLine( "ClipDispType={0}", (int) this.eClipDispType );
-			sw.WriteLine();
+			//sw.WriteLine();
 			#endregion
-    		#region [ プレビュー音 ]
-			sw.WriteLine( "; 曲選択からプレビュー音の再生までのウェイト[ms]" );
+			#region [ プレビュー音 ]
+			//sw.WriteLine( "; 曲選択からプレビュー音の再生までのウェイト[ms]" );
 			sw.WriteLine( "PreviewSoundWait={0}", this.n曲が選択されてからプレビュー音が鳴るまでのウェイトms );
-			sw.WriteLine();
-			sw.WriteLine( "; 曲選択からプレビュー画像表示までのウェイト[ms]" );
+			//sw.WriteLine();
+			//sw.WriteLine( "; 曲選択からプレビュー画像表示までのウェイト[ms]" );
 			sw.WriteLine( "PreviewImageWait={0}", this.n曲が選択されてからプレビュー画像が表示開始されるまでのウェイトms );
-			sw.WriteLine();
+			//sw.WriteLine();
 			#endregion
 			//sw.WriteLine( "; Waveの再生位置自動補正(0:OFF, 1:ON)" );
 			//sw.WriteLine( "AdjustWaves={0}", this.bWave再生位置自動調整機能有効 ? 1 : 0 );
@@ -1933,7 +1933,7 @@ namespace TJAPlayer3
             sw.WriteLine( "; 判定数の表示(0:OFF, 1:ON)" );
 			sw.WriteLine( "JudgeCountDisplay={0}", this.bJudgeCountDisplay ? 1 : 0 );
 			sw.WriteLine();
-            sw.WriteLine( "; プレイ人数" );
+            sw.WriteLine( "; PlayerCount" );
             sw.WriteLine( "PlayerCount={0}", this.nPlayerCount );
             sw.WriteLine();
 			sw.WriteLine("; 1プレイのゲームコスト ");

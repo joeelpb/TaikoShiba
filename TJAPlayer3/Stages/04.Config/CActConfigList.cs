@@ -95,7 +95,7 @@ namespace TJAPlayer3
 			this.iTaikoGameCost = new CItemInteger("Game Cost", 0, 99, TJAPlayer3.ConfigIni.nGameCost, "1プレイに必要なクレジット数を指定します。");
 			this.list項目リスト.Add(this.iTaikoGameCost);
 
-			this.iTaikoPlayerCount = new CItemInteger( "プレイ人数", 1, 2, TJAPlayer3.ConfigIni.nPlayerCount,
+			this.iTaikoPlayerCount = new CItemInteger( "Player Count", 1, 2, TJAPlayer3.ConfigIni.nPlayerCount,
                 "プレイ人数切り替え：\n2にすると演奏画面が2人プレイ専用のレイアウトになり、2P専用譜面を読み込むようになります。",
                 "" );
             this.list項目リスト.Add( this.iTaikoPlayerCount );
