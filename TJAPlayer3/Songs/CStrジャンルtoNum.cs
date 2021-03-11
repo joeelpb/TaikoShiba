@@ -1,0 +1,53 @@
+﻿namespace TJAPlayer3
+{
+    internal static class CStrジャンルtoNum
+    {
+        internal static int ForAC8_14( string strジャンル )
+        {
+            switch( strジャンル )
+            {
+                case "アニメ":
+                    return 0;
+                case "ポップス":
+                    return 1;
+                case "ゲームミュージック":
+                    return 2;
+                case "ナムコオリジナル":
+                    return 3;
+                case "クラシック":
+                    return 4;
+                case "キッズ":
+                    return 5;
+                case "ボーカロイド":
+                case "VOCALOID":
+                    return 7;
+                default:
+                    return 8;
+            }
+        }
+
+        internal static int ForAC15(string strジャンル)
+        {
+            switch (strジャンル)
+            {
+                case "ポップス":
+                    return 0;
+                case "アニメ":
+                    return 1;
+                case "ボーカロイド":
+                case "VOCALOID":
+                    return 2;
+                case "キッズ":
+                    return 3;
+                case "クラシック":
+                    return 5;
+                case "ゲームミュージック":
+                    return 6;
+                case "ナムコオリジナル":
+                    return 7;
+                default:
+                    return 8;
+            }
+        }
+    }
+}

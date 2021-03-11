@@ -1,0 +1,52 @@
+name: build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - name: Setup Timezone
+      uses: szenius/set-timezone@v1.0
+      with:
+        timezoneWindows: "Tokyo Standard Time"
+    - name: Checkout repository
+      uses: actions/checkout@v1
+    - name: Setup NuGet.exe for use with actions
+      uses: NuGet/setup-nuget@v1
+    - name: Restore NuGet Packages
+      run: nuget restore $Env:GITHUB_WORKSPACE\TJAPlayer3.sln
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+    - name: Build the Solution
+      run: MSBuild.exe $Env:GITHUB_WORKSPACE\TJAPlayer3.sln -p:Configuration=Release
+      timeout-minutes: 5
+    - name: Create Archive
+      run: |
+        cd $Env:GITHUB_WORKSPACE
+        tar -a -cvf TaikoShiba.zip -C Test *
+    - name: Get Current Time
+      id: time
+      shell: pwsh
+      run: |
+        echo "::set-output name=time::$(Get-Date)"
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: release-${{ github.sha }}
+        release_name: Release on ${{ steps.time.outputs.time }}
+        draft: false
+        prerelease: false
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./TaikoShiba.zip
+        asset_name: TaikoShiba.zip
+        asset_content_type: application/zip
