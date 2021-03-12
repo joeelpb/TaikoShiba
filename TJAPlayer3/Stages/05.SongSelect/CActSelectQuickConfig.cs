@@ -53,10 +53,10 @@ namespace TJAPlayer3
 			#region [ 共通 Target/AutoMode/AutoLane ]
 			#endregion
 			#region [ 個別 ScrollSpeed ]
-			l.Add( new CItemInteger("スクロール速度", 0, 1999, TJAPlayer3.ConfigIni.n譜面スクロール速度[ nInst ],
-				"演奏時のドラム譜面のスクロールの\n" +
-				"速度を指定します。\n" +
-				"x0.5 ～ x1000.0 を指定可能です。",
+			l.Add( new CItemInteger("Scroll Speed", 0, 1999, TJAPlayer3.ConfigIni.n譜面スクロール速度[ nInst ],
+				"Scrolling the drum score when playing\n" +
+				"Specify the speed。\n" +
+				"You can specify from x0.5 to x1000.0",
 				"To change the scroll speed for the\n" +
 				"drums lanes.\n" +
 				"You can set it from x0.5 to x1000.0.\n" +
@@ -82,7 +82,7 @@ namespace TJAPlayer3
             l.Add( new CItemList( "ノーツの表示", CItemBase.Eパネル種別.通常, (int) TJAPlayer3.ConfigIni.eSTEALTH,
 				"",
 				new string[] { "OFF", "ドロン", "ステルス" } ) );
-            l.Add( new CItemList( "ゲーム", CItemBase.Eパネル種別.通常, (int)TJAPlayer3.ConfigIni.eGameMode,
+            l.Add( new CItemList( "Type of game", CItemBase.Eパネル種別.通常, (int)TJAPlayer3.ConfigIni.eGameMode,
                 "ゲームモード\n" +
                 "TYPE-A: 完走!叩ききりまショー!\n" +
                 "TYPE-B: 完走!叩ききりまショー!(激辛)\n" +
@@ -90,7 +90,7 @@ namespace TJAPlayer3
                 " \n" +
                 " \n" +
                 " ",
-                new string[] { "OFF", "完走!", "完走!激辛" }) );
+                new string[] { "Default", "Finish it!", "Super Spicy" }) );
 
             l.Add(new CItemList(nameof(TJAPlayer3.ConfigIni.ShinuchiMode), CItemBase.Eパネル種別.通常, TJAPlayer3.ConfigIni.ShinuchiMode ? 1 : 0, "", "", new string[] { "OFF", "ON" }));
 
