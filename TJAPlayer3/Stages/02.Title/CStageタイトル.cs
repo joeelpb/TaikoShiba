@@ -138,8 +138,9 @@ namespace TJAPlayer3
 
 				if(CreditStatus != 3)
                 {
-					if(!TJAPlayer3.Skin.soundEntry.b再生中 && !TJAPlayer3.Skin.soundタイトルスタート音.b再生中 && !TJAPlayer3.Skin.soundCoin.b再生中 && !TJAPlayer3.Skin.soundService.b再生中)
-						TJAPlayer3.Skin.soundEntry.t再生する();
+					if (TJAPlayer3.Skin.soundEntry.b再生中)
+						TJAPlayer3.Skin.soundEntry.t停止する();
+					TJAPlayer3.Skin.soundEntry.t再生する();
 				}
 
 				// 進行
