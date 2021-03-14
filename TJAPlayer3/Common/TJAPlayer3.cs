@@ -2391,7 +2391,7 @@ for (int i = 0; i < 3; i++) {
 				delay = "(" + Sound管理.GetSoundDelay() + "ms)";
 			}
             AssemblyName asmApp = Assembly.GetExecutingAssembly().GetName();
-			base.Window.Text = $"TaikoShiba太鼓柴";
+			base.Window.Text = $"TaikoShiba!";
 		}
 
 		private void t終了処理()

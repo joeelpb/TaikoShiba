@@ -1360,7 +1360,7 @@ namespace TJAPlayer3
             this.nVelocityMin.LBD = 0;
 			#endregion
 			this.nRisky = 0;							// #23539 2011.7.26 yyagi RISKYモード
-			this.bIsAutoResultCapture = false;			// #25399 2011.6.9 yyagi リザルト画像自動保存機能ON/OFF
+			this.bIsAutoResultCapture = true;			// #25399 2011.6.9 yyagi リザルト画像自動保存機能ON/OFF
 
 			this.bバッファ入力を行う = true;
 			this.bIsAllowedDoubleClickFullscreen = true;	// #26752 2011.11.26 ダブルクリックでのフルスクリーンモード移行を許可

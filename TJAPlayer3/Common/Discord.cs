@@ -101,7 +101,7 @@ namespace TJAPlayer3
             if (startTimeStamp != 0) presence.startTimestamp = startTimeStamp;
             if (endTimeStamp != 0) presence.endTimestamp = endTimeStamp;
             presence.largeImageKey = StrToPtr("shibaicon");
-            presence.largeImageText = StrToPtr("TaikoShiba太鼓柴 by OGApollo");
+            presence.largeImageText = StrToPtr("TaikoShiba! by OGApollo");
             if (!string.IsNullOrEmpty(smallImageKey)) presence.smallImageKey = StrToPtr(smallImageKey);
             if (!string.IsNullOrEmpty(smallImageText)) presence.smallImageText = StrToPtr(smallImageText);
 
