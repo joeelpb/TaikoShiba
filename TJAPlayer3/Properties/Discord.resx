@@ -121,7 +121,7 @@
     <value>AI</value>
   </data>
   <data name="Stage_InGame" xml:space="preserve">
-    <value>Currently playing</value>
+    <value>Currently playing!</value>
   </data>
   <data name="Stage_Result" xml:space="preserve">
     <value>Watching the results...</value>
@@ -133,6 +133,6 @@
     <value>Selecting a song...</value>
   </data>
   <data name="Stage_StartUp" xml:space="preserve">
-    <value>Just started playing</value>
+    <value>In the menu screen...</value>
   </data>
 </root>

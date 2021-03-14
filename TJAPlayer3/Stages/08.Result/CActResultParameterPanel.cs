@@ -468,6 +468,11 @@ namespace TJAPlayer3
 						if (ct全体アニメ.n現在の値 <= 2000 + (ctゲージアニメーション.n終了値 * 66) + 6680)
 							for (int i = 0; i < 3; i++)
 							{
+								if (!b音声再生[1])
+								{
+									TJAPlayer3.Skin.soundResultPom.t再生する();
+									b音声再生[1] = true;
+								}
 								TJAPlayer3.Tx.Result_Crown[i].Opacity = (ct全体アニメ.n現在の値 - (2000 + (ctゲージアニメーション.n終了値 * 66) + 6500)) / 180.0f * 255.0f;
 								TJAPlayer3.Tx.Result_Crown[i].vc拡大縮小倍率.X = 1.0f + (float)Math.Sin((float)(ct全体アニメ.n現在の値 - (2000 + (ctゲージアニメーション.n終了値 * 66) + 6410)) / 1.5f * (Math.PI / 180)) * 1.4f;
 								TJAPlayer3.Tx.Result_Crown[i].vc拡大縮小倍率.Y = 1.0f + (float)Math.Sin((float)(ct全体アニメ.n現在の値 - (2000 + (ctゲージアニメーション.n終了値 * 66) + 6410)) / 1.5f * (Math.PI / 180)) * 1.4f;
@@ -475,6 +480,11 @@ namespace TJAPlayer3
 						else if (ct全体アニメ.n現在の値 <= 2000 + (ctゲージアニメーション.n終了値 * 66) + 6770)
 							for (int i = 0; i < 3; i++)
 							{
+								if (!b音声再生[1])
+								{
+									TJAPlayer3.Skin.soundResultPom.t再生する();
+									b音声再生[1] = true;
+								}
 								TJAPlayer3.Tx.Result_Crown[i].vc拡大縮小倍率.X = 0.5f + (float)Math.Sin((float)(ct全体アニメ.n現在の値 - (2000 + (ctゲージアニメーション.n終了値 * 66) + 6680)) * (Math.PI / 180)) * 0.5f;
 								TJAPlayer3.Tx.Result_Crown[i].vc拡大縮小倍率.Y = 0.5f + (float)Math.Sin((float)(ct全体アニメ.n現在の値 - (2000 + (ctゲージアニメーション.n終了値 * 66) + 6680)) * (Math.PI / 180)) * 0.5f;
 							}

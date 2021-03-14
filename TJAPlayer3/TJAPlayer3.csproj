@@ -9,10 +9,10 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TJAPlayer3</RootNamespace>
-    <AssemblyName>TaikoShiba</AssemblyName>
+    <AssemblyName>TaikoShiba!</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ApplicationIcon>TJAPlayer3.ico</ApplicationIcon>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>
@@ -277,7 +277,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dtx.ico" />
-    <Content Include="TJAPlayer3.ico" />
+    <Content Include="Icon.ico" />
+    <None Include="Resources\TJAPlayer.ico" />
+    <None Include="Resources\tjap3.ico" />
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\tjap33.ico" />
     <None Include="Resources\TJAPlayer3.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -70,7 +70,7 @@ namespace TJAPlayer3.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Currently playing.
+        ///   Looks up a localized string similar to Currently playing!.
         /// </summary>
         internal static string Stage_InGame {
             get {
@@ -106,7 +106,7 @@ namespace TJAPlayer3.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Just started playing.
+        ///   Looks up a localized string similar to In the menu screen....
         /// </summary>
         internal static string Stage_StartUp {
             get {
