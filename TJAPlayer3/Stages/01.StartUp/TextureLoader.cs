@@ -139,7 +139,7 @@ namespace TJAPlayer3
             Config_Font_Bold = TxC(CONFIG + @"Font_Bold.png");
             TJAPlayer3.Skin.Config_Enum_Song_Ptn = TJAPlayer3.t連番画像の枚数を数える(CSkin.Path(BASE + CONFIG + @"Enum_Song\"));
             Config_Enum_Song = new CTexture[TJAPlayer3.Skin.Config_Enum_Song_Ptn];
-            for(int i = 0; i < TJAPlayer3.Skin.Config_Enum_Song_Ptn; i++) Config_Enum_Song[i] = TxC(CONFIG + @"Enum_Song\" + i.ToString() + ".png");
+            for(int i = 0; i < TJAPlayer3.Skin.Config_Enum_Song_Ptn; i++) Config_Enum_Song[i] = TxC(CONFIG + @"" + "Enum" + ".png");
             #endregion
 
             #region 3_選曲画面
