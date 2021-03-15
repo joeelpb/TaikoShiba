@@ -76,7 +76,7 @@ namespace TJAPlayer3
 				"Return to left menu." );
 			this.list項目リスト.Add( this.iSystemReturnToMenu );
 
-			this.iSystemReloadDTX = new CItemBase( "曲データ再読込み", CItemBase.Eパネル種別.通常,
+			this.iSystemReloadDTX = new CItemBase("Reload songs", CItemBase.Eパネル種別.通常,
 				"曲データの一覧情報を取得し直します。",
 				"Reload song data." );
 			this.list項目リスト.Add( this.iSystemReloadDTX );
@@ -95,7 +95,7 @@ namespace TJAPlayer3
 			this.iTaikoGameCost = new CItemInteger("Game Cost", 0, 99, TJAPlayer3.ConfigIni.nGameCost, "1プレイに必要なクレジット数を指定します。");
 			this.list項目リスト.Add(this.iTaikoGameCost);
 
-			this.iTaikoPlayerCount = new CItemInteger( "プレイ人数", 1, 2, TJAPlayer3.ConfigIni.nPlayerCount,
+			this.iTaikoPlayerCount = new CItemInteger( "Number of Players", 1, 2, TJAPlayer3.ConfigIni.nPlayerCount,
                 "プレイ人数切り替え：\n2にすると演奏画面が2人プレイ専用のレイアウトになり、2P専用譜面を読み込むようになります。",
                 "" );
             this.list項目リスト.Add( this.iTaikoPlayerCount );
