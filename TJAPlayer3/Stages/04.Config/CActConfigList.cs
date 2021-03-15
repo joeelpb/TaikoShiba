@@ -81,6 +81,31 @@ namespace TJAPlayer3
 				"Reload song data." );
 			this.list項目リスト.Add( this.iSystemReloadDTX );
 
+			this.iSystemSoundTimerType = new CItemToggle("FPS Boost", TJAPlayer3.ConfigIni.bUseOSTimer,
+				"OSタイマーを使用するかどうか:\n" +
+				"演奏タイマーとして、DTXMania独自の\n" +
+				"タイマーを使うか、OS標準のタイマー\n" +
+				"を使うかを選択します。\n" +
+				"OS標準タイマーを使うとスクロールが\n" +
+				"滑らかになりますが、演奏で音ズレが\n" +
+				"発生することがあります。(そのため\n" +
+				"AdjustWavesの効果が適用されます。)\n" +
+				"\n" +
+				"この指定はWASAPI/ASIO使用時のみ有効\n" +
+				"です。\n",
+				"Use OS Timer or not:\n" +
+				"If this settings is ON, DTXMania uses\n" +
+				"OS Standard timer. It brings smooth\n" +
+				"scroll, but may cause some sound lag.\n" +
+				"(so AdjustWaves is also avilable)\n" +
+				"\n" +
+				"If OFF, DTXMania uses its original\n" +
+				"timer and the effect is vice versa.\n" +
+				"\n" +
+				"This settings is avilable only when\n" +
+				"you uses WASAPI/ASIO.\n"
+			);
+			this.list項目リスト.Add(this.iSystemSoundTimerType);
 			//this.iCommonDark = new CItemList( "Dark", CItemBase.Eパネル種別.通常, (int) CDTXMania.ConfigIni.eDark,
 			//    "HALF: 背景、レーン、ゲージが表示\nされなくなります。\nFULL: さらに小節線、拍線、判定ラ\nイン、パッドも表示されなくなります。",
 			//    "OFF: all display parts are shown.\nHALF: wallpaper, lanes and gauge are\n disappeared.\nFULL: additionaly to HALF, bar/beat\n lines, hit bar, pads are disappeared.",
@@ -407,31 +432,7 @@ namespace TJAPlayer3
 			//this.list項目リスト.Add( this.iSystemASIOBufferSizeMs );
 
 			// #33689 2014.6.17 yyagi
-			this.iSystemSoundTimerType = new CItemToggle( "UseOSTimer", TJAPlayer3.ConfigIni.bUseOSTimer,
-				"OSタイマーを使用するかどうか:\n" +
-				"演奏タイマーとして、DTXMania独自の\n" +
-				"タイマーを使うか、OS標準のタイマー\n" +
-				"を使うかを選択します。\n" +
-				"OS標準タイマーを使うとスクロールが\n" +
-				"滑らかになりますが、演奏で音ズレが\n" +
-				"発生することがあります。(そのため\n" +
-				"AdjustWavesの効果が適用されます。)\n" +
-				"\n" +
-				"この指定はWASAPI/ASIO使用時のみ有効\n" +
-				"です。\n",
-				"Use OS Timer or not:\n" +
-				"If this settings is ON, DTXMania uses\n" +
-				"OS Standard timer. It brings smooth\n" +
-				"scroll, but may cause some sound lag.\n" +
-				"(so AdjustWaves is also avilable)\n" +
-				"\n" +
-				"If OFF, DTXMania uses its original\n" +
-				"timer and the effect is vice versa.\n" +
-				"\n" +
-				"This settings is avilable only when\n" +
-				"you uses WASAPI/ASIO.\n"
-			);
-			this.list項目リスト.Add( this.iSystemSoundTimerType );
+			
 
 
             ShowChara = new CItemToggle("ShowChara", TJAPlayer3.ConfigIni.ShowChara,
