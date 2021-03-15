@@ -117,8 +117,8 @@ namespace TJAPlayer3
 			"Stop the timer by default.\nYou can still toggle the timer by pressing F8 key.");
 			this.list項目リスト.Add(this.iTaikoStopTimerByDefault);
 
-			this.iTaikoGameCost = new CItemInteger("Game Cost", 0, 99, TJAPlayer3.ConfigIni.nGameCost, "1プレイに必要なクレジット数を指定します。");
-			this.list項目リスト.Add(this.iTaikoGameCost);
+			/*this.iTaikoGameCost = new CItemInteger("Game Cost", 0, 99, TJAPlayer3.ConfigIni.nGameCost, "1プレイに必要なクレジット数を指定します。");
+			this.list項目リスト.Add(this.iTaikoGameCost);*/
 
 			this.iTaikoPlayerCount = new CItemInteger( "Number of Players", 1, 2, TJAPlayer3.ConfigIni.nPlayerCount,
                 "プレイ人数切り替え：\n2にすると演奏画面が2人プレイ専用のレイアウトになり、2P専用譜面を読み込むようになります。",
@@ -2220,7 +2220,7 @@ namespace TJAPlayer3
         private CItemToggle iTaikoJudgeCountDisp;
         private CItemToggle iTaikoBigNotesJudge;
         private CItemInteger iTaikoPlayerCount;
-		private CItemInteger iTaikoGameCost;
+		//private CItemInteger iTaikoGameCost;
 		private CItemToggle iTaikoStopTimerByDefault;
 		CItemToggle ShowChara;
         CItemToggle ShowDancer;
@@ -2394,7 +2394,7 @@ namespace TJAPlayer3
             TJAPlayer3.ConfigIni.ShowPuchiChara = this.ShowPuchiChara.bON;
             TJAPlayer3.ConfigIni.nPlayerCount = this.iTaikoPlayerCount.n現在の値;
             TJAPlayer3.ConfigIni.FastRender = this.FastRender.bON;
-			TJAPlayer3.ConfigIni.nGameCost = this.iTaikoGameCost.n現在の値;
+			//TJAPlayer3.ConfigIni.nGameCost = this.iTaikoGameCost.n現在の値;
 			TJAPlayer3.ConfigIni.bStopTimerByDefault = this.iTaikoStopTimerByDefault.bON;
 		}
 		private void tConfigIniへ記録する_Bass()
