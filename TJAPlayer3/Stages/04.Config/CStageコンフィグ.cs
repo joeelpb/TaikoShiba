@@ -61,7 +61,7 @@ namespace TJAPlayer3
 				this.n現在のメニュー番号 = 0;                                                    //
                 if (!string.IsNullOrEmpty(TJAPlayer3.ConfigIni.FontName))
                 {
-                    this.ftフォント = new Font("Calibri", 22.0f, FontStyle.Bold, GraphicsUnit.Pixel);
+                    this.ftフォント = new Font("FOT-大江戸勘亭流 Std E", 22.0f, FontStyle.Bold, GraphicsUnit.Pixel);
                 }
                 else
                 {
@@ -126,16 +126,17 @@ namespace TJAPlayer3
 				//this.txMenuカーソル = CDTXMania.tテクスチャの生成( CSkin.Path( @"Graphics\ScreenConfig menu cursor.png" ) );
 			    string[] strMenuItem = {"General Settings", "InGame Settings", "Save & Quit"};
 			    txMenuItemLeft = new CTexture[strMenuItem.Length, 2];
-			    using (var prvFont = new CPrivateFastFont(CSkin.Path(@"DFPKanTeiRyu.ttf"), 20))
+			    using (var prvFont = new CPrivateFastFont(new FontFamily("FOT-大江戸勘亭流 Std E"), 20))
 			    {
 			        for (int i = 0; i < strMenuItem.Length; i++)
 			        {
-			            using (var bmpStr = prvFont.DrawPrivateFont(strMenuItem[i], Color.Gray, Color.Black))
+
+			            using (var bmpStr = prvFont.DrawPrivateFont(strMenuItem[i], Color.White, Color.Black))
 			            {
 			                txMenuItemLeft[i, 0] = TJAPlayer3.tテクスチャの生成(bmpStr, false);
 			            }
-			            using (var bmpStr = prvFont.DrawPrivateFont(strMenuItem[i], Color.White, Color.Black, Color.White, Color.White))
-			            {
+			            using (var bmpStr = prvFont.DrawPrivateFont(strMenuItem[i], Color.LightBlue, Color.Black))
+						{
 			                txMenuItemLeft[i, 1] = TJAPlayer3.tテクスチャの生成(bmpStr, false);
 			            }
 			        }

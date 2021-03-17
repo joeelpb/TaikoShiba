@@ -1265,10 +1265,6 @@ namespace TJAPlayer3
 				"左側のメニューに戻ります。",
 				"Return to left menu." );
 			this.list項目リスト.Add( this.iKeyAssignSystemReturnToMenu );
-			this.iKeyAssignSystemCapture = new CItemBase( "Capture",
-				"キャプチャキー設定：\n画面キャプチャのキーの割り当てを設\n定します。",
-				"Capture key assign:\nTo assign key for screen capture.\n (You can use keyboard only. You can't\nuse pads to capture screenshot." );
-			this.list項目リスト.Add( this.iKeyAssignSystemCapture );
 
 			this.iKeyAssignTaikoLRed = new CItemBase("Left Don",
 				"左側の面へのキーの割り当てを設\n定します。",
@@ -1303,6 +1299,11 @@ namespace TJAPlayer3
 				"右側のふちへのキーの\n割り当てを設定します。",
 				"Drums key assign:\nTo assign key/pads for LeftBassDrum\n button.");
 			this.list項目リスト.Add(this.iKeyAssignTaikoRBlue2P);
+			this.iKeyAssignSystemCapture = new CItemBase("Screenshot",
+				"キャプチャキー設定：\n画面キャプチャのキーの割り当てを設\n定します。",
+				"Capture key assign:\nTo assign key for screen capture.\n (You can use keyboard only. You can't\nuse pads to capture screenshot.");
+			this.list項目リスト.Add(this.iKeyAssignSystemCapture);
+
 
 			OnListMenuの初期化();
 			this.n現在の選択項目 = 0;
@@ -1532,9 +1533,9 @@ namespace TJAPlayer3
 			#endregion
 
             if ( !string.IsNullOrEmpty(TJAPlayer3.ConfigIni.FontName))
-			    this.prvFont = new CPrivateFastFont(new FontFamily("Calibri"), 20);
+			    this.prvFont = new CPrivateFastFont(new FontFamily("FOT-大江戸勘亭流 Std E"), 20);
 			else
-                this.prvFont = new CPrivateFastFont(new FontFamily("Calibri"), 20);
+                this.prvFont = new CPrivateFastFont(new FontFamily("FOT-大江戸勘亭流 Std E"), 20);
 
             //			this.listMenu = new List<stMenuItemRight>();
 

@@ -136,8 +136,8 @@ namespace TJAPlayer3
 				}
 				if(TJAPlayer3.Tx.Menu_Highlight != null )
 				{
-					int num = 20;
-					int num2 = 0x144;
+				/*	int num = 20;
+					int num2 = 0x144 +300;
 					int num3 = 0x3e + ( num * ( this.n現在の選択行 + 1 ) );
                     TJAPlayer3.Tx.Menu_Highlight.t2D描画( TJAPlayer3.app.Device, num2, num3, new Rectangle( 0, 0, 0x10, 0x20 ) );
 					num2 += 0x10;
@@ -148,11 +148,11 @@ namespace TJAPlayer3
 						num2 += 0x10;
 					}
                     TJAPlayer3.Tx.Menu_Highlight.t2D描画( TJAPlayer3.app.Device, num2, num3, new Rectangle( 0x10, 0, 0x10, 0x20 ) );
-				}
+				*/}
 				int num5 = 20;
-				int x = 0x134;
-				int y = 0x40;
-				TJAPlayer3.stageコンフィグ.actFont.t文字列描画( x, y, this.strパッド名, false, 0.75f );
+				int x = 610;
+				int y = 60;
+				TJAPlayer3.stageコンフィグ.actFont.t文字列描画( x, y -20, this.strパッド名, true, 1.0f );
 				y += num5;
 				CConfigIni.CKeyAssign.STKEYASSIGN[] stkeyassignArray = TJAPlayer3.ConfigIni.KeyAssign[ (int) this.part ][ (int) this.pad ];
 				for( int i = 0; i < 0x10; i++ )
@@ -181,13 +181,13 @@ namespace TJAPlayer3
 					}
 					y += num5;
 				}
-				TJAPlayer3.stageコンフィグ.actFont.t文字列描画( x + 20, y, "Reset", this.n現在の選択行 == 0x10, 0.75f );
+				TJAPlayer3.stageコンフィグ.actFont.t文字列描画( x + 20, y, "* Set Default", this.n現在の選択行 == 0x10, 0.75f );
 				y += num5;
-				TJAPlayer3.stageコンフィグ.actFont.t文字列描画( x + 20, y, "<< Returnto List", this.n現在の選択行 == 0x11, 0.75f );
+				TJAPlayer3.stageコンフィグ.actFont.t文字列描画( x + 20, y, "< Go Back", this.n現在の選択行 == 0x11, 0.75f );
 				y += num5;
 				if( this.bキー入力待ち && ( TJAPlayer3.Tx.Config_KeyAssign != null ) )
 				{
-                    TJAPlayer3.Tx.Config_KeyAssign.t2D描画( TJAPlayer3.app.Device, 0x185, 0xd7 );
+                    TJAPlayer3.Tx.Config_KeyAssign.t2D描画( TJAPlayer3.app.Device, 0, 0 );
 				}
 			}
 			return 0;
