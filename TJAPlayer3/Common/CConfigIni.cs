@@ -2844,21 +2844,24 @@ namespace TJAPlayer3
 											{																	//
 												this.tキーの読み出しと設定( str4, this.KeyAssign.Drums.RightBlue2P );	//
 											}
-
+											else if(str3.Equals("Capture"))
+											{
+												this.tキーの読み出しと設定(str4, this.KeyAssign.Drums.Capture);
+											}
 											continue;
 										}
 									//-----------------------------
 									#endregion
 
 									#region [ [SystemKeyAssign] ]
-									//-----------------------------
+									/*//-----------------------------
 									case Eセクション種別.SystemKeyAssign:
 										if( str3.Equals( "Capture" ) )
 										{
 											this.tキーの読み出しと設定( str4, this.KeyAssign.System.Capture );
 										}
 										continue;
-									//-----------------------------
+									//-----------------------------*/
 									#endregion
 								}
 							}

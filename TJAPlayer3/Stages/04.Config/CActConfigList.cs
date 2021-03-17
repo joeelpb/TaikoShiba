@@ -71,12 +71,12 @@ namespace TJAPlayer3
 
 			// #27029 2012.1.5 from: 説明文は最大9行→13行に変更。
 
-			this.iSystemReturnToMenu = new CItemBase( "<< Return To Menu", CItemBase.Eパネル種別.その他,
+			this.iSystemReturnToMenu = new CItemBase( "← Go Back", CItemBase.Eパネル種別.その他,
 				"左側のメニューに戻ります。",
 				"Return to left menu." );
 			this.list項目リスト.Add( this.iSystemReturnToMenu );
 
-			this.iSystemReloadDTX = new CItemBase("Reload songs", CItemBase.Eパネル種別.通常,
+			this.iSystemReloadDTX = new CItemBase("Reload Songs", CItemBase.Eパネル種別.通常,
 				"曲データの一覧情報を取得し直します。",
 				"Reload song data." );
 			this.list項目リスト.Add( this.iSystemReloadDTX );
@@ -112,7 +112,7 @@ namespace TJAPlayer3
 			//    new string[] { "OFF", "HALF", "FULL" } );
 			//this.list項目リスト.Add( this.iCommonDark );
 
-			this.iTaikoStopTimerByDefault = new CItemToggle("Stop The Timer", TJAPlayer3.ConfigIni.bStopTimerByDefault,
+			this.iTaikoStopTimerByDefault = new CItemToggle("Stop Countdown", TJAPlayer3.ConfigIni.bStopTimerByDefault,
 			"デフォルトではタイマー停止。\nF8キーを押すとタイマーのオン/オフを切り替えることができます。",
 			"Stop the timer by default.\nYou can still toggle the timer by pressing F8 key.");
 			this.list項目リスト.Add(this.iTaikoStopTimerByDefault);
@@ -130,7 +130,7 @@ namespace TJAPlayer3
 				"Risky mode:\nSet over 1, in case you'd like to specify\n the number of Poor/Miss times to be\n FAILED.\nSet 0 to disable Risky mode." );
 			this.list項目リスト.Add( this.iSystemRisky );
 
-			this.iCommonPlaySpeed = new CItemInteger("再生速度", 5, 400, TJAPlayer3.ConfigIni.n演奏速度,
+			this.iCommonPlaySpeed = new CItemInteger("Song Speed", 5, 400, TJAPlayer3.ConfigIni.n演奏速度,
 				"曲の演奏速度を、速くしたり遅くした\n" +
 				"りすることができます。\n" +
 				"（※一部のサウンドカードでは正しく\n" +
@@ -149,7 +149,7 @@ namespace TJAPlayer3
 				"lag occurs slower than x0.900.");
 			this.list項目リスト.Add( this.iCommonPlaySpeed );
 
-			this.iSystemTimeStretch = new CItemToggle( "TimeStretch", TJAPlayer3.ConfigIni.bTimeStretch,
+			this.iSystemTimeStretch = new CItemToggle( "Time Stretch", TJAPlayer3.ConfigIni.bTimeStretch,
 				"演奏速度の変更方式:\n" + 
 				"ONにすると、演奏速度の変更を、\n" +
 				"周波数変更ではなく\n" +
@@ -169,15 +169,15 @@ namespace TJAPlayer3
 			this.list項目リスト.Add( this.iSystemTimeStretch );
 
 
-			this.iSystemFullscreen = new CItemToggle( "Fullscreen", TJAPlayer3.ConfigIni.b全画面モード,
+			this.iSystemFullscreen = new CItemToggle( "Fullscreen Mode", TJAPlayer3.ConfigIni.b全画面モード,
 				"画面モード設定：\nON で全画面モード、OFF でウィンド\nウモードになります。",
 				"Fullscreen mode or window mode." );
 			this.list項目リスト.Add( this.iSystemFullscreen );
-			this.iSystemStageFailed = new CItemToggle( "StageFailed", TJAPlayer3.ConfigIni.bSTAGEFAILED有効,
+			this.iSystemStageFailed = new CItemToggle( "Stage Failed", TJAPlayer3.ConfigIni.bSTAGEFAILED有効,
 				"STAGE FAILED 有効：\nON にすると、ゲージがなくなった時\nに STAGE FAILED となり演奏が中断\nされます。OFF の場合は、ゲージが\nなくなっても最後まで演奏できます。",
 				"Turn OFF if you don't want to encount\n GAME OVER." );
 			this.list項目リスト.Add( this.iSystemStageFailed );
-			this.iSystemRandomFromSubBox = new CItemToggle( "RandSubBox", TJAPlayer3.ConfigIni.bランダムセレクトで子BOXを検索対象とする,
+			this.iSystemRandomFromSubBox = new CItemToggle( "Random Sub Box", TJAPlayer3.ConfigIni.bランダムセレクトで子BOXを検索対象とする,
 				"子BOXをRANDOMの対象とする：\nON にすると、RANDOM SELECT 時\nに子BOXも選択対象とします。",
 				"Turn ON to use child BOX (subfolders)\n at RANDOM SELECT." );
 			this.list項目リスト.Add( this.iSystemRandomFromSubBox );
@@ -202,7 +202,7 @@ namespace TJAPlayer3
 			//	"Note: This setting is effetive\n" +
 			//	" only when DirectSound is used.");
 			//this.list項目リスト.Add( this.iSystemAdjustWaves );
-			this.iSystemVSyncWait = new CItemToggle( "VSyncWait", TJAPlayer3.ConfigIni.b垂直帰線待ちを行う,
+			this.iSystemVSyncWait = new CItemToggle( "VSync Wait", TJAPlayer3.ConfigIni.b垂直帰線待ちを行う,
 				"垂直帰線同期：\n画面の描画をディスプレイの垂直帰\n線中に行なう場合には ON を指定し\nます。ON にすると、ガタつきのない\n滑らかな画面描画が実現されます。",
 				"Turn ON to wait VSync (Vertical\n Synchronizing signal) at every\n drawings. (so FPS becomes 60)\nIf you have enough CPU/GPU power,\n the scroll would become smooth." );
 			this.list項目リスト.Add( this.iSystemVSyncWait );
@@ -214,11 +214,11 @@ namespace TJAPlayer3
 				"BGAの使用：\n画像(BGA)を表示可能にする場合に\nON にします。BGA の再生には、それ\nなりのマシンパワーが必要とされます。",
 				"To draw BGA (back ground animations)\n or not." );
 			this.list項目リスト.Add( this.iSystemBGA );
-			this.iSystemPreviewSoundWait = new CItemInteger( "PreSoundWait", 0, 0x2710, TJAPlayer3.ConfigIni.n曲が選択されてからプレビュー音が鳴るまでのウェイトms,
+			this.iSystemPreviewSoundWait = new CItemInteger( "Pre Sound Wait", 0, 0x2710, TJAPlayer3.ConfigIni.n曲が選択されてからプレビュー音が鳴るまでのウェイトms,
 				"プレビュー音演奏までの時間：\n曲にカーソルが合わされてからプレ\nビュー音が鳴り始めるまでの時間を\n指定します。\n0 ～ 10000 [ms] が指定可能です。",
 				"Delay time(ms) to start playing preview\n sound in SELECT MUSIC screen.\nYou can specify from 0ms to 10000ms." );
 			this.list項目リスト.Add( this.iSystemPreviewSoundWait );
-			this.iSystemPreviewImageWait = new CItemInteger( "PreImageWait", 0, 0x2710, TJAPlayer3.ConfigIni.n曲が選択されてからプレビュー画像が表示開始されるまでのウェイトms,
+			this.iSystemPreviewImageWait = new CItemInteger( "Pre Image Wait", 0, 0x2710, TJAPlayer3.ConfigIni.n曲が選択されてからプレビュー画像が表示開始されるまでのウェイトms,
 				"プレビュー画像表示までの時間：\n曲にカーソルが合わされてからプレ\nビュー画像が表示されるまでの時間\nを指定します。\n0 ～ 10000 [ms] が指定可能です。",
 				"Delay time(ms) to show preview image\n in SELECT MUSIC screen.\nYou can specify from 0ms to 10000ms." );
 			this.list項目リスト.Add( this.iSystemPreviewImageWait );
@@ -226,11 +226,11 @@ namespace TJAPlayer3
 				"演奏情報の表示：\n演奏中、BGA領域の下部に演奏情報\n（FPS、BPM、演奏時間など）を表示し\nます。\nまた、小節線の横に小節番号が表示\nされるようになります。",
 				"To show song informations on playing\n BGA area. (FPS, BPM, total time etc)\nYou can ON/OFF the indications\n by pushing [Del] while playing drums,\n guitar or bass." );
 			this.list項目リスト.Add( this.iSystemDebugInfo );
-			this.iSystemBGAlpha = new CItemInteger( "BG Alpha", 0, 0xff, TJAPlayer3.ConfigIni.n背景の透過度,
+			this.iSystemBGAlpha = new CItemInteger( "Background Alpha", 0, 0xff, TJAPlayer3.ConfigIni.n背景の透過度,
 				"背景画像の半透明割合：\n背景画像をDTXManiaのフレーム画像\nと合成する際の、背景画像の透明度\nを指定します。\n0 が完全透明で、255 が完全不透明\nとなります。",
 				"The degree for transparing playing\n screen and wallpaper.\n\n0=completely transparent,\n255=no transparency" );
 			this.list項目リスト.Add( this.iSystemBGAlpha );
-			this.iSystemBGMSound = new CItemToggle( "BGM Sound", TJAPlayer3.ConfigIni.bBGM音を発声する,
+			this.iSystemBGMSound = new CItemToggle( "Background Music Sound", TJAPlayer3.ConfigIni.bBGM音を発声する,
 				"BGMの再生：\nこれをOFFにすると、BGM を再生しな\nくなります。",
 				"Turn OFF if you don't want to play\n BGM." );
 			this.list項目リスト.Add( this.iSystemBGMSound );
@@ -243,7 +243,7 @@ namespace TJAPlayer3
             //    "Damage level at missing (and\n recovering level) at playing.\nThis setting is ignored when Risky >= 1.",
             //    new string[] { "Small", "Normal", "Large" } );
             //this.list項目リスト.Add( this.iSystemDamageLevel );
-			this.iSystemSaveScore = new CItemToggle( "SaveScore", TJAPlayer3.ConfigIni.bScoreIniを出力する,
+			this.iSystemSaveScore = new CItemToggle( "Save Score", TJAPlayer3.ConfigIni.bScoreIniを出力する,
 				"演奏記録の保存：\nON で演奏記録を ～.score.ini ファイ\nルに保存します。\n",
 				"To save high-scores/skills, turn it ON.\nTurn OFF in case your song data are\n in read-only media (CD-ROM etc).\nNote that the score files also contain\n 'BGM Adjust' parameter. So if you\n want to keep adjusting parameter,\n you need to set SaveScore=ON." );
 			this.list項目リスト.Add( this.iSystemSaveScore );
@@ -288,7 +288,7 @@ namespace TJAPlayer3
 		        "The amount of sound level change for each press\nof a sound level control key.\nYou can specify from 1 to 20." );
 		    this.list項目リスト.Add( this.iSystemKeyboardSoundLevelIncrement );
 
-            this.MusicPreTimeMs = new CItemInteger("MusicPreTimeMs", 0, 10000, TJAPlayer3.ConfigIni.MusicPreTimeMs,
+            this.MusicPreTimeMs = new CItemInteger("Music Pre Time [Ms]", 0, 10000, TJAPlayer3.ConfigIni.MusicPreTimeMs,
                 "音源再生前の空白時間 (ms)。\n",
                 "Blank time before music source to play. (ms)\n");
             this.list項目リスト.Add(this.MusicPreTimeMs);
@@ -302,7 +302,7 @@ namespace TJAPlayer3
             //    "About displaying the lag from\n the \"just timing\".\n  OFF: Don't show it.\n  ON: Show it.\n  GREAT-: Show it except you've\n  gotten PERFECT.",
             //    new string[] { "OFF", "ON", "GREAT-" } );
             //this.list項目リスト.Add( this.iSystemShowLag );
-            this.iSystemAutoResultCapture = new CItemToggle( "Autosaveresult", TJAPlayer3.ConfigIni.bIsAutoResultCapture,
+            this.iSystemAutoResultCapture = new CItemToggle( "Save Result Screenshot", TJAPlayer3.ConfigIni.bIsAutoResultCapture,
 				"リザルト画像自動保存機能：\nONにすると、ハイスコア/ハイスキル時に\n自動でリザルト画像を曲データと同じ\nフォルダに保存します。",
 				"AutoSaveResult:\nTurn ON to save your result screen\n image automatically when you get\n hiscore/hiskill." );
 			this.list項目リスト.Add( this.iSystemAutoResultCapture );
@@ -327,17 +327,17 @@ namespace TJAPlayer3
             //    new string[] { "Under", "Over" } );
             //this.list項目リスト.Add( this.iSystemJudgeDispPriority );	
 
-            this.iSystemBufferedInput = new CItemToggle( "BufferedInput", TJAPlayer3.ConfigIni.bバッファ入力を行う,
+            this.iSystemBufferedInput = new CItemToggle( "Buffered Input", TJAPlayer3.ConfigIni.bバッファ入力を行う,
 				"バッファ入力モード：\nON にすると、FPS を超える入力解像\n度を実現します。\nOFF にすると、入力解像度は FPS に\n等しくなります。",
 				"To select joystick input method.\n\nON to use buffer input. No lost/lags.\nOFF to use realtime input. It may\n causes lost/lags for input.\n Moreover, input frequency is\n synchronized with FPS." );
 			this.list項目リスト.Add( this.iSystemBufferedInput );
-			this.iLogOutputLog = new CItemToggle( "TraceLog", TJAPlayer3.ConfigIni.bログ出力,
+			this.iLogOutputLog = new CItemToggle( "Trace Log", TJAPlayer3.ConfigIni.bログ出力,
 				"Traceログ出力：\nTJAPlayer3.log にログを出力します。\n変更した場合は、DTXMania の再起動\n後に有効となります。",
 				"Turn ON to put debug log to\n TJAPlayer3.log\nTo take it effective, you need to\n re-open TJAPlayer3.");
 			this.list項目リスト.Add( this.iLogOutputLog );
 
-			// #24820 2013.1.3 yyagi
-			this.iSystemSoundType = new CItemList("SoundType", CItemList.Eパネル種別.通常, TJAPlayer3.ConfigIni.nSoundDeviceType,
+			// #24820 2013.1.3 yyagi 
+			this.iSystemSoundType = new CItemList("Soun dType", CItemList.Eパネル種別.通常, TJAPlayer3.ConfigIni.nSoundDeviceType,
 				"サウンドの出力方式:\n" +
 				"WASAPI, ASIO, DSound(DirectSound)\n" +
 				"の中からサウンド出力方式を選択\n" +
@@ -366,7 +366,7 @@ namespace TJAPlayer3
 			this.list項目リスト.Add(this.iSystemSoundType);
 
 			// #24820 2013.1.15 yyagi
-			this.iSystemWASAPIBufferSizeMs = new CItemInteger( "WASAPIBufSize", 0, 99999, TJAPlayer3.ConfigIni.nWASAPIBufferSizeMs,
+			this.iSystemWASAPIBufferSizeMs = new CItemInteger( "WASAPI Buff Size", 0, 99999, TJAPlayer3.ConfigIni.nWASAPIBufferSizeMs,
 			    "WASAPI使用時のバッファサイズ:\n" +
 			    "0～99999ms を指定可能です。\n" +
 			    "0を指定すると、OSがバッファの\n" +
@@ -389,7 +389,7 @@ namespace TJAPlayer3
 
 			// #24820 2013.1.17 yyagi
 			string[] asiodevs = CEnumerateAllAsioDevices.GetAllASIODevices();
-			this.iSystemASIODevice = new CItemList( "ASIO device", CItemList.Eパネル種別.通常, TJAPlayer3.ConfigIni.nASIODevice,
+			this.iSystemASIODevice = new CItemList( "ASIO Device", CItemList.Eパネル種別.通常, TJAPlayer3.ConfigIni.nASIODevice,
 				"ASIOデバイス:\n" +
 				"ASIO使用時のサウンドデバイスを\n" +
 				"選択します。\n" +
@@ -435,31 +435,31 @@ namespace TJAPlayer3
 			
 
 
-            ShowChara = new CItemToggle("ShowChara", TJAPlayer3.ConfigIni.ShowChara,
+            ShowChara = new CItemToggle("Show Character", TJAPlayer3.ConfigIni.ShowChara,
                 "キャラクター画像を表示するかどうか\n",
                 "Show Character Images.\n" +
                 "");
             this.list項目リスト.Add(ShowChara);
 
-            ShowDancer = new CItemToggle("ShowDancer", TJAPlayer3.ConfigIni.ShowDancer,
+            ShowDancer = new CItemToggle("Show Dancer", TJAPlayer3.ConfigIni.ShowDancer,
                 "ダンサー画像を表示するかどうか\n",
                 "Show Dancer Images.\n" +
                 "");
             this.list項目リスト.Add(ShowDancer);
 
-            ShowMob = new CItemToggle("ShowMob", TJAPlayer3.ConfigIni.ShowMob,
+            ShowMob = new CItemToggle("Show Mob", TJAPlayer3.ConfigIni.ShowMob,
                 "モブ画像を表示するかどうか\n",
                 "Show Mob Images.\n" +
                 "");
             this.list項目リスト.Add(ShowMob);
 
-            ShowRunner = new CItemToggle("ShowRunner", TJAPlayer3.ConfigIni.ShowRunner,
+            ShowRunner = new CItemToggle("Show Runner", TJAPlayer3.ConfigIni.ShowRunner,
                 "ランナー画像を表示するかどうか\n",
                 "Show Runner Images.\n" +
                 "");
             this.list項目リスト.Add(ShowRunner);
 
-            ShowFooter = new CItemToggle("ShowFooter", TJAPlayer3.ConfigIni.ShowFooter,
+            ShowFooter = new CItemToggle("Show Footer", TJAPlayer3.ConfigIni.ShowFooter,
                 "フッター画像を表示するかどうか\n",
                 "Show Footer Image.\n" +
                 "");
@@ -469,7 +469,7 @@ namespace TJAPlayer3
                 "事前画像描画機能を使うかどうか。\n",
                 "Use pre-textures render.\n");
             this.list項目リスト.Add(FastRender);
-            ShowPuchiChara = new CItemToggle("ShowPuchiChara", TJAPlayer3.ConfigIni.ShowPuchiChara,
+            ShowPuchiChara = new CItemToggle("Show PuchiChara", TJAPlayer3.ConfigIni.ShowPuchiChara,
                 "ぷちキャラ画像を表示するかどうか\n",
                 "Show PuchiChara Images.\n" +
                 "");
@@ -477,7 +477,7 @@ namespace TJAPlayer3
 
 
 
-            this.iSystemSkinSubfolder = new CItemList("Skin (全体)", CItemBase.Eパネル種別.通常, nSkinIndex,
+            this.iSystemSkinSubfolder = new CItemList("Skin", CItemBase.Eパネル種別.通常, nSkinIndex,
                 "スキン切替：\n" +
                 "スキンを切り替えます。\n",
                 //"CONFIGURATIONを抜けると、設定した\n" +
@@ -500,7 +500,7 @@ namespace TJAPlayer3
             //this.list項目リスト.Add( this.iSystemUseBoxDefSkin );
 
 
-            this.iSystemGoToKeyAssign = new CItemBase( "System Keys", CItemBase.Eパネル種別.通常,
+            this.iSystemGoToKeyAssign = new CItemBase( "Key Configuration", CItemBase.Eパネル種別.通常,
 			"システムのキー入力に関する項目を設\n定します。",
 			"Settings for the system key/pad inputs." );
 			this.list項目リスト.Add( this.iSystemGoToKeyAssign );
@@ -518,7 +518,7 @@ namespace TJAPlayer3
 
 			// #27029 2012.1.5 from: 説明文は最大9行→13行に変更。
 
-			this.iDrumsReturnToMenu = new CItemBase( "<< Return To Menu", CItemBase.Eパネル種別.その他,
+			this.iDrumsReturnToMenu = new CItemBase( "← Go Back", CItemBase.Eパネル種別.その他,
 				"左側のメニューに戻ります。",
 				"Return to left menu." );
 			this.list項目リスト.Add( this.iDrumsReturnToMenu );
@@ -855,11 +855,11 @@ namespace TJAPlayer3
                 "(SinglePlay Only)");
             this.list項目リスト.Add( this.iTaikoJudgeCountDisp );
             
-			this.iDrumsGoToKeyAssign = new CItemBase( "KEY CONFIG", CItemBase.Eパネル種別.通常,
+			/*this.iDrumsGoToKeyAssign = new CItemBase( "KEY CONFIG", CItemBase.Eパネル種別.通常,
 				"ドラムのキー入力に関する項目を設\n"+
 				"定します。",
 				"Settings for the drums key/pad inputs." );
-			this.list項目リスト.Add( this.iDrumsGoToKeyAssign );
+			this.list項目リスト.Add( this.iDrumsGoToKeyAssign );*/
 
             OnListMenuの初期化();
 			this.n現在の選択項目 = 0;
@@ -874,7 +874,7 @@ namespace TJAPlayer3
 
 			// #27029 2012.1.5 from: 説明文は最大9行→13行に変更。
 
-			this.iGuitarReturnToMenu = new CItemBase( "<< Return To Menu", CItemBase.Eパネル種別.その他,
+			this.iGuitarReturnToMenu = new CItemBase( "← Go Back", CItemBase.Eパネル種別.その他,
 				"左側のメニューに戻ります。",
 				"Return to left menu." );
 			this.list項目リスト.Add( this.iGuitarReturnToMenu );
@@ -892,7 +892,7 @@ namespace TJAPlayer3
 
 			// #27029 2012.1.5 from: 説明文は最大9行→13行に変更。
 
-			this.iBassReturnToMenu = new CItemBase( "<< Return To Menu", CItemBase.Eパネル種別.その他,
+			this.iBassReturnToMenu = new CItemBase( "← Go Back", CItemBase.Eパネル種別.その他,
 				"左側のメニューに戻ります。",
 				"Return to left menu." );
 			this.list項目リスト.Add( this.iBassReturnToMenu );
@@ -1261,7 +1261,7 @@ namespace TJAPlayer3
 
 			// #27029 2012.1.5 from: 説明文は最大9行→13行に変更。
 
-			this.iKeyAssignSystemReturnToMenu = new CItemBase( "<< ReturnTo Menu", CItemBase.Eパネル種別.その他,
+			this.iKeyAssignSystemReturnToMenu = new CItemBase("← Go Back", CItemBase.Eパネル種別.その他,
 				"左側のメニューに戻ります。",
 				"Return to left menu." );
 			this.list項目リスト.Add( this.iKeyAssignSystemReturnToMenu );
@@ -1270,7 +1270,41 @@ namespace TJAPlayer3
 				"Capture key assign:\nTo assign key for screen capture.\n (You can use keyboard only. You can't\nuse pads to capture screenshot." );
 			this.list項目リスト.Add( this.iKeyAssignSystemCapture );
 
-            OnListMenuの初期化();
+			this.iKeyAssignTaikoLRed = new CItemBase("Left Don",
+				"左側の面へのキーの割り当てを設\n定します。",
+				"Drums key assign:\nTo assign key/pads for RightCymbal\n button.");
+			this.list項目リスト.Add(this.iKeyAssignTaikoLRed);
+			this.iKeyAssignTaikoRRed = new CItemBase("Right Don",
+				"右側の面へのキーの割り当て\nを設定します。",
+				"Drums key assign:\nTo assign key/pads for RideCymbal\n button.");
+			this.list項目リスト.Add(this.iKeyAssignTaikoRRed);
+			this.iKeyAssignTaikoLBlue = new CItemBase("Left Ka",
+				"左側のふちへのキーの\n割り当てを設定します。",
+				"Drums key assign:\nTo assign key/pads for HiHatPedal\n button.");
+			this.list項目リスト.Add(this.iKeyAssignTaikoLBlue);
+			this.iKeyAssignTaikoRBlue = new CItemBase("Right Ka",
+				"右側のふちへのキーの\n割り当てを設定します。",
+				"Drums key assign:\nTo assign key/pads for LeftBassDrum\n button.");
+			this.list項目リスト.Add(this.iKeyAssignTaikoRBlue);
+
+			this.iKeyAssignTaikoLRed2P = new CItemBase("Left Don 2P",
+				"左側の面へのキーの割り当てを設\n定します。",
+				"Drums key assign:\nTo assign key/pads for RightCymbal\n button.");
+			this.list項目リスト.Add(this.iKeyAssignTaikoLRed2P);
+			this.iKeyAssignTaikoRRed2P = new CItemBase("Right Don 2P",
+				"右側の面へのキーの割り当て\nを設定します。",
+				"Drums key assign:\nTo assign key/pads for RideCymbal\n button.");
+			this.list項目リスト.Add(this.iKeyAssignTaikoRRed2P);
+			this.iKeyAssignTaikoLBlue2P = new CItemBase("Left Ka 2P",
+				"左側のふちへのキーの\n割り当てを設定します。",
+				"Drums key assign:\nTo assign key/pads for HiHatPedal\n button.");
+			this.list項目リスト.Add(this.iKeyAssignTaikoLBlue2P);
+			this.iKeyAssignTaikoRBlue2P = new CItemBase("Right Ka 2P",
+				"右側のふちへのキーの\n割り当てを設定します。",
+				"Drums key assign:\nTo assign key/pads for LeftBassDrum\n button.");
+			this.list項目リスト.Add(this.iKeyAssignTaikoRBlue2P);
+
+			OnListMenuの初期化();
 			this.n現在の選択項目 = 0;
 			this.eメニュー種別 = Eメニュー種別.KeyAssignSystem;
 		}
@@ -1281,7 +1315,7 @@ namespace TJAPlayer3
 
 			// #27029 2012.1.5 from: 説明文は最大9行→13行に変更。
 
-			this.iKeyAssignDrumsReturnToMenu = new CItemBase( "<< ReturnTo Menu", CItemBase.Eパネル種別.その他,
+			this.iKeyAssignDrumsReturnToMenu = new CItemBase("← Go Back", CItemBase.Eパネル種別.その他,
 				"左側のメニューに戻ります。",
 				"Return to left menu.");
 			this.list項目リスト.Add(this.iKeyAssignDrumsReturnToMenu);
@@ -1335,39 +1369,7 @@ namespace TJAPlayer3
             //this.list項目リスト.Add( this.iKeyAssignDrumsLBD );	
 
 
-			this.iKeyAssignTaikoLRed = new CItemBase( "LeftRed",
-				"左側の面へのキーの割り当てを設\n定します。",
-				"Drums key assign:\nTo assign key/pads for RightCymbal\n button.");
-			this.list項目リスト.Add(this.iKeyAssignTaikoLRed);
-			this.iKeyAssignTaikoRRed = new CItemBase( "RightRed",
-			    "右側の面へのキーの割り当て\nを設定します。",
-				"Drums key assign:\nTo assign key/pads for RideCymbal\n button.");
-			this.list項目リスト.Add(this.iKeyAssignTaikoRRed);
-			this.iKeyAssignTaikoLBlue = new CItemBase( "LeftBlue",
-				"左側のふちへのキーの\n割り当てを設定します。",	
-				"Drums key assign:\nTo assign key/pads for HiHatPedal\n button." );
-			this.list項目リスト.Add( this.iKeyAssignTaikoLBlue );
-            this.iKeyAssignTaikoRBlue = new CItemBase( "RightBlue",
-                "右側のふちへのキーの\n割り当てを設定します。",
-				"Drums key assign:\nTo assign key/pads for LeftBassDrum\n button." );
-			this.list項目リスト.Add( this.iKeyAssignTaikoRBlue );
-
-			this.iKeyAssignTaikoLRed2P = new CItemBase( "LeftRed2P",
-				"左側の面へのキーの割り当てを設\n定します。",
-				"Drums key assign:\nTo assign key/pads for RightCymbal\n button.");
-			this.list項目リスト.Add( this.iKeyAssignTaikoLRed2P );
-			this.iKeyAssignTaikoRRed2P = new CItemBase( "RightRed2P",
-			    "右側の面へのキーの割り当て\nを設定します。",
-				"Drums key assign:\nTo assign key/pads for RideCymbal\n button.");
-			this.list項目リスト.Add( this.iKeyAssignTaikoRRed2P );
-			this.iKeyAssignTaikoLBlue2P = new CItemBase( "LeftBlue2P",
-				"左側のふちへのキーの\n割り当てを設定します。",	
-				"Drums key assign:\nTo assign key/pads for HiHatPedal\n button." );
-			this.list項目リスト.Add( this.iKeyAssignTaikoLBlue2P );
-            this.iKeyAssignTaikoRBlue2P = new CItemBase( "RightBlue2P",
-                "右側のふちへのキーの\n割り当てを設定します。",
-				"Drums key assign:\nTo assign key/pads for LeftBassDrum\n button." );
-			this.list項目リスト.Add( this.iKeyAssignTaikoRBlue2P );
+			
 
             OnListMenuの初期化();
 			this.n現在の選択項目 = 0;
@@ -1380,7 +1382,7 @@ namespace TJAPlayer3
 
 			// #27029 2012.1.5 from: 説明文は最大9行→13行に変更。
 
-			this.iKeyAssignGuitarReturnToMenu = new CItemBase( "<< ReturnTo Menu", CItemBase.Eパネル種別.その他,
+			this.iKeyAssignGuitarReturnToMenu = new CItemBase("← Go Back", CItemBase.Eパネル種別.その他,
 				"左側のメニューに戻ります。",
 				"Return to left menu.");
 			this.list項目リスト.Add(this.iKeyAssignGuitarReturnToMenu);
@@ -1424,7 +1426,7 @@ namespace TJAPlayer3
 
 			// #27029 2012.1.5 from: 説明文は最大9行→13行に変更。
 
-			this.iKeyAssignBassReturnToMenu = new CItemBase( "<< ReturnTo Menu", CItemBase.Eパネル種別.その他,
+			this.iKeyAssignBassReturnToMenu = new CItemBase("← Go Back", CItemBase.Eパネル種別.その他,
 				"左側のメニューに戻ります。",
 				"Return to left menu." );
 			this.list項目リスト.Add( this.iKeyAssignBassReturnToMenu );

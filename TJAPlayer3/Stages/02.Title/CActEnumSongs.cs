@@ -153,8 +153,8 @@ namespace TJAPlayer3
 			}
 			if ( bコマンドでの曲データ取得 && TJAPlayer3.Skin.Config_Enum_Song_Ptn != 0 )
 			{
-				TJAPlayer3.Tx.Config_Enum_Song[this.Config_Enum_Song_Index].t2D描画( TJAPlayer3.app.Device, 180, 177 );
-				this.txMessage.t2D描画( TJAPlayer3.app.Device, 190, 197 );
+				TJAPlayer3.Tx.Config_Enum_Song[this.Config_Enum_Song_Index].t2D描画( TJAPlayer3.app.Device, 0, 0 );
+				//this.txMessage.t2D描画( TJAPlayer3.app.Device, 190, 197 );
 			}
 
 			return 0;
