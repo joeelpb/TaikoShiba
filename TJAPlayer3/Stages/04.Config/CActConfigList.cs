@@ -587,21 +587,21 @@ namespace TJAPlayer3
 	skinNames);
 			this.list項目リスト.Add(this.iSystemSkinSubfolder);
 
-			this.iTaikoAutoPlay = new CItemToggle( "AUTO PLAY", TJAPlayer3.ConfigIni.b太鼓パートAutoPlay,
-				"すべての音符を自動で演奏します。\n" +
-				"",
-				"To play both Taiko\n" +
-				" automatically." );
+			this.iTaikoAutoPlay = new CItemToggle( "Auto Play", TJAPlayer3.ConfigIni.b太鼓パートAutoPlay,
+
+				"Watch a perfect automated play\n" +
+				"through the song.");
+
 			this.list項目リスト.Add( this.iTaikoAutoPlay );
 
-			this.iTaikoAutoPlay2P = new CItemToggle( "AUTO PLAY 2P", TJAPlayer3.ConfigIni.b太鼓パートAutoPlay,
-				"すべての音符を自動で演奏します。\n" +
-				"",
-				"To play both Taiko\n" +
-				" automatically." );
+			this.iTaikoAutoPlay2P = new CItemToggle( "Auto Play 2P", TJAPlayer3.ConfigIni.b太鼓パートAutoPlay,
+
+				"Watch a perfect automated play\n" +
+				"through the song. (2nd Player)");
+
 			this.list項目リスト.Add( this.iTaikoAutoPlay2P );
 
-			this.iTaikoAutoRoll = new CItemToggle( "AUTO Roll", TJAPlayer3.ConfigIni.bAuto先生の連打,
+			this.iTaikoAutoRoll = new CItemToggle( "Auto Roll", TJAPlayer3.ConfigIni.bAuto先生の連打,
 				"OFFにするとAUTO先生が黄色連打を\n" +
 				"叩かなくなります。",
 				"To play both Taiko\n" +
