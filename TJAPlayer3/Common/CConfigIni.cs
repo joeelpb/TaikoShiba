@@ -232,17 +232,6 @@ namespace TJAPlayer3
 						this.padLBD = value;
 					}
 				}
-				public CConfigIni.CKeyAssign.STKEYASSIGN[] Capture
-				{
-					get
-					{
-						return this.padCapture;
-					}
-					set
-					{
-						this.padCapture = value;
-					}
-				}
 				public CConfigIni.CKeyAssign.STKEYASSIGN[] LeftRed
 				{
 					get
@@ -331,6 +320,17 @@ namespace TJAPlayer3
 						this.padRBlue2P = value;
 					}
                 }
+				public CConfigIni.CKeyAssign.STKEYASSIGN[] Capture
+				{
+					get
+					{
+						return this.padCapture;
+					}
+					set
+					{
+						this.padCapture = value;
+					}
+				}
 				public CConfigIni.CKeyAssign.STKEYASSIGN[] this[ int index ]
 				{
 					get
@@ -516,7 +516,6 @@ namespace TJAPlayer3
 				private CConfigIni.CKeyAssign.STKEYASSIGN[] padLBlue2P;
 				private CConfigIni.CKeyAssign.STKEYASSIGN[] padRRed2P;
 				private CConfigIni.CKeyAssign.STKEYASSIGN[] padRBlue2P;
-
 				private CConfigIni.CKeyAssign.STKEYASSIGN[] padCapture;
 				//-----------------
 				#endregion
@@ -789,7 +788,7 @@ namespace TJAPlayer3
 		{
 			get
 			{
-				for( int i = 0; i <= (int)EKeyConfigPart.SYSTEM; i++ )
+				for( int i = 0; i <= (int)EKeyConfigPart.DRUMS; i++ )
 				{
 					for( int j = 0; j <= (int)EKeyConfigPad.Capture; j++ )
 					{
@@ -1443,7 +1442,7 @@ namespace TJAPlayer3
 
 		public void t指定した入力が既にアサイン済みである場合はそれを全削除する( E入力デバイス DeviceType, int nID, int nCode )
 		{
-			for( int i = 0; i <= (int)EKeyConfigPart.SYSTEM; i++ )
+			for( int i = 0; i <= (int)EKeyConfigPart.DRUMS; i++ )
 			{
 				for( int j = 0; j <= (int)EKeyConfigPad.Capture; j++ )
 				{
@@ -2004,15 +2003,9 @@ namespace TJAPlayer3
 			sw.Write( "RightBlue2P=" );										// #27029 2012.1.4 from
 			this.tキーの書き出し( sw, this.KeyAssign.Drums.RightBlue2P );	//
 			sw.WriteLine();
-			sw.WriteLine();
-			#endregion
-			#region [ SystemkeyAssign ]
-			sw.WriteLine( "[SystemKeyAssign]" );
-			sw.WriteLine();
-			sw.Write( "Capture=" );
-			this.tキーの書き出し( sw, this.KeyAssign.System.Capture );
-			sw.WriteLine();
-			sw.WriteLine();
+			sw.Write("Capture=");
+			this.tキーの書き出し(sw, this.KeyAssign.Drums.Capture);
+
 			#endregion
 
 			sw.Close();
@@ -3049,8 +3042,6 @@ LeftRed2P=
 RightRed2P=
 LeftBlue2P=
 RightBlue2P=
-
-[SystemKeyAssign]
 Capture=K065
 ";
 			t文字列から読み込み( strDefaultKeyAssign );

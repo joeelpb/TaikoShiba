@@ -119,7 +119,9 @@ namespace TJAPlayer3
 
 			this.iTaikoStopTimerByDefault = new CItemToggle("Stop Countdown", TJAPlayer3.ConfigIni.bStopTimerByDefault,
 			"デフォルトではタイマー停止。\nF8キーを押すとタイマーのオン/オフを切り替えることができます。",
-			"Stop the timer by default.\nYou can still toggle the timer by pressing F8 key.");
+			"Stop the timer by default.\n" +
+			"You can still toggle the timer by\n" +
+			"pressing F8 key.");
 			this.list項目リスト.Add(this.iTaikoStopTimerByDefault);
 
 			/*this.iTaikoGameCost = new CItemInteger("Game Cost", 0, 99, TJAPlayer3.ConfigIni.nGameCost, "1プレイに必要なクレジット数を指定します。");
@@ -482,21 +484,30 @@ namespace TJAPlayer3
 
 
 
+			this.iSystemSkinSubfolder = new CItemList("Skin", CItemBase.Eパネル種別.通常, nSkinIndex,
+	"スキン切替：\n" +
+	"スキンを切り替えます。\n",
+	//"CONFIGURATIONを抜けると、設定した\n" +
+	//"スキンに変更されます。",
+	"Skin:\n" +
+	"Change skin.",
+	skinNames);
+			this.list項目リスト.Add(this.iSystemSkinSubfolder);
 
-            //this.iSystemUseBoxDefSkin = new CItemToggle( "Skin (Box)", CDTXMania.ConfigIni.bUseBoxDefSkin,
-            //	"Music boxスキンの利用：\n" +
-            //	"特別なスキンが設定されたMusic box\n" +
-            //	"に出入りしたときに、自動でスキンを\n" +
-            //	"切り替えるかどうかを設定します。\n",
-            //	//"\n" +
-            //	//"(Music Boxスキンは、box.defファイル\n" +
-            //	//" で指定できます)\n",
-            //	"Box skin:\n" +
-            //	"Automatically change skin\n" +
-            //	"specified in box.def file." );
-            //this.list項目リスト.Add( this.iSystemUseBoxDefSkin );
+			//this.iSystemUseBoxDefSkin = new CItemToggle( "Skin (Box)", CDTXMania.ConfigIni.bUseBoxDefSkin,
+			//	"Music boxスキンの利用：\n" +
+			//	"特別なスキンが設定されたMusic box\n" +
+			//	"に出入りしたときに、自動でスキンを\n" +
+			//	"切り替えるかどうかを設定します。\n",
+			//	//"\n" +
+			//	//"(Music Boxスキンは、box.defファイル\n" +
+			//	//" で指定できます)\n",
+			//	"Box skin:\n" +
+			//	"Automatically change skin\n" +
+			//	"specified in box.def file." );
+			//this.list項目リスト.Add( this.iSystemUseBoxDefSkin );
 
-            OnListMenuの初期化();
+			OnListMenuの初期化();
 			this.n現在の選択項目 = 0;
 			this.eメニュー種別 = Eメニュー種別.System;
 		}
@@ -576,16 +587,6 @@ namespace TJAPlayer3
 			//    "To play both LeftBassDrum\n" +
 			//    " automatically." );
 			//this.list項目リスト.Add( this.iDrumsLeftBassDrum );
-
-			this.iSystemSkinSubfolder = new CItemList("Skin", CItemBase.Eパネル種別.通常, nSkinIndex,
-	"スキン切替：\n" +
-	"スキンを切り替えます。\n",
-	//"CONFIGURATIONを抜けると、設定した\n" +
-	//"スキンに変更されます。",
-	"Skin:\n" +
-	"Change skin.",
-	skinNames);
-			this.list項目リスト.Add(this.iSystemSkinSubfolder);
 
 			this.iTaikoAutoPlay = new CItemToggle( "Auto Play", TJAPlayer3.ConfigIni.b太鼓パートAutoPlay,
 
@@ -1117,7 +1118,7 @@ namespace TJAPlayer3
 
 			else if ( this.list項目リスト[ this.n現在の選択項目 ] == this.iKeyAssignSystemCapture )
 			{
-				TJAPlayer3.stageコンフィグ.tパッド選択通知( EKeyConfigPart.SYSTEM, EKeyConfigPad.Capture);
+				TJAPlayer3.stageコンフィグ.tパッド選択通知(EKeyConfigPart.DRUMS, EKeyConfigPad.Capture);
 			}
 			#endregion
 			else
@@ -2019,7 +2020,6 @@ namespace TJAPlayer3
 		private CCounter ct三角矢印アニメ;
 		private Eメニュー種別 eメニュー種別;
 		#region [ キーコンフィグ ]
-		private CItemBase iKeyAssignSystemCapture;			// #24609
 		private CItemBase iKeyAssignSystemReturnToMenu;		// #24609
 		private CItemBase iKeyAssignBassB;
 		private CItemBase iKeyAssignBassCancel;
@@ -2059,6 +2059,8 @@ namespace TJAPlayer3
 		private CItemBase iKeyAssignTaikoRRed2P;
 		private CItemBase iKeyAssignTaikoLBlue2P;
 		private CItemBase iKeyAssignTaikoRBlue2P;
+		private CItemBase iKeyAssignSystemCapture;          // #24609
+
 
 		#endregion
 		private CItemToggle iLogOutputLog;

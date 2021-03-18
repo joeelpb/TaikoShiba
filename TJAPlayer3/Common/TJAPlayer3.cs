@@ -2924,13 +2924,19 @@ for (int i = 0; i < 3; i++) {
 			{
 				for ( int i = 0; i < 0x10; i++ )
 				{
-					if ( ConfigIni.KeyAssign.System.Capture[ i ].コード > 0 &&
-						 e.KeyCode == DeviceConstantConverter.KeyToKeyCode( (SlimDX.DirectInput.Key) ConfigIni.KeyAssign.System.Capture[ i ].コード ) )
+					if ( ConfigIni.KeyAssign.Drums.Capture[ i ].コード > 0 &&
+						 e.KeyCode == DeviceConstantConverter.KeyToKeyCode( (SlimDX.DirectInput.Key) ConfigIni.KeyAssign.Drums.Capture[ i ].コード ) )
 					{
 						// Debug.WriteLine( "capture: " + string.Format( "{0:2x}", (int) e.KeyCode ) + " " + (int) e.KeyCode );
 						string strFullPath =
-						   Path.Combine( TJAPlayer3.strEXEのあるフォルダ, "Capture_img" );
-						strFullPath = Path.Combine( strFullPath, DateTime.Now.ToString( "yyyyMMddHHmmss" ) + ".png" );
+						   Path.Combine( TJAPlayer3.strEXEのあるフォルダ, "Screenshots" );
+						strFullPath = Path.Combine( strFullPath,
+							DateTime.Now.ToString("dd") + ("-") +
+							DateTime.Now.ToString("MMM") + ("-") +
+							DateTime.Now.ToString("yyy") + ("/") +
+							("TaikoShiba  -  ") +
+							DateTime.Now.ToString("HHmmss") +
+							".png");
 						SaveResultScreen( strFullPath );
 					}
 				}
