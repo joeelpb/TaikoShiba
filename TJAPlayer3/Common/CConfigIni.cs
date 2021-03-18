@@ -859,14 +859,14 @@ namespace TJAPlayer3
 		public int nASIODevice;						// #24820 2013.1.17 yyagi ASIOデバイス
 		public bool bUseOSTimer;					// #33689 2014.6.6 yyagi 演奏タイマーの種類
 		public bool bDynamicBassMixerManagement;	// #24820
-		public bool bTimeStretch;					// #23664 2013.2.24 yyagi ピッチ変更無しで再生速度を変更するかどうか
+		//public bool bTimeStretch;					// #23664 2013.2.24 yyagi ピッチ変更無しで再生速度を変更するかどうか
 		public STDGBVALUE<EInvisible> eInvisible;	// #32072 2013.9.20 yyagi チップを非表示にする
 		public int nDisplayTimesMs, nFadeoutTimeMs;
 
 		public STDGBVALUE<int> nViewerScrollSpeed;
 		public bool bViewerVSyncWait;
 		public bool bViewerShowDebugStatus;
-		public bool bViewerTimeStretch;
+		//public bool bViewerTimeStretch;
 		public bool bViewerDrums有効, bViewerGuitar有効;
 		//public bool bNoMP3Streaming;				// 2014.4.14 yyagi; mp3のシーク位置がおかしくなる場合は、これをtrueにすることで、wavにデコードしてからオンメモリ再生する
 		public int nMasterVolume;
@@ -1380,13 +1380,13 @@ namespace TJAPlayer3
 			#endregion
 			this.bUseOSTimer = true;;					// #33689 2014.6.6 yyagi 初期値はfalse (FDKのタイマー。ＦＲＯＭ氏考案の独自タイマー)
 			this.bDynamicBassMixerManagement = true;	//
-			this.bTimeStretch = false;					// #23664 2013.2.24 yyagi 初期値はfalse (再生速度変更を、ピッチ変更にて行う)
+			//this.bTimeStretch = false;					// #23664 2013.2.24 yyagi 初期値はfalse (再生速度変更を、ピッチ変更にて行う)
 			this.nDisplayTimesMs = 3000;				// #32072 2013.10.24 yyagi Semi-Invisibleでの、チップ再表示期間
 			this.nFadeoutTimeMs = 2000;					// #32072 2013.10.24 yyagi Semi-Invisibleでの、チップフェードアウト時間
 
 			bViewerVSyncWait = true;
 			bViewerShowDebugStatus = true;
-			bViewerTimeStretch = false;
+			//bViewerTimeStretch = false;
 			bViewerDrums有効 = true;
 			bViewerGuitar有効 = true;
             
@@ -1748,7 +1748,7 @@ namespace TJAPlayer3
 			sw.WriteLine( "; Set \"0\" if you'd like to use pitch shift with PlaySpeed." );	//
 			sw.WriteLine( "; Set \"1\" for time stretch." );								//
 			sw.WriteLine( "; (Only available when you're using using WASAPI or ASIO)" );	//
-			sw.WriteLine( "TimeStretch={0}", this.bTimeStretch ? 1 : 0 );					//
+			//sw.WriteLine( "TimeStretch={0}", this.bTimeStretch ? 1 : 0 );					//
 			sw.WriteLine();
 			//sw.WriteLine( "; WASAPI/ASIO使用時に、MP3をストリーム再生するかどうか(0:ストリーム再生する, 1:しない)" );			//
 			//sw.WriteLine( "; (mp3のシークがおかしくなる場合は、これを1にしてください) " );	//
@@ -2406,10 +2406,10 @@ namespace TJAPlayer3
                                             {
                                                 SendDiscordPlayingInformation = C変換.bONorOFF(str4[0]);
                                             }
-                                            else if ( str3.Equals( "TimeStretch" ) )				// #23664 2013.2.24 yyagi
+                                          /*  else if ( str3.Equals( "TimeStretch" ) )				// #23664 2013.2.24 yyagi
 											{
 												this.bTimeStretch = C変換.bONorOFF( str4[ 0 ] );
-											}
+											}*/
 											#region [ AdjustTime ]
 											else if( str3.Equals( "InputAdjustTime" ) )
 											{
@@ -2772,10 +2772,10 @@ namespace TJAPlayer3
 											{
 												this.bViewerShowDebugStatus = C変換.bONorOFF( str4[ 0 ] );
 											}
-											else if ( str3.Equals( "ViewerTimeStretch" ) )
+											/*else if ( str3.Equals( "ViewerTimeStretch" ) )
 											{
 												this.bViewerTimeStretch = C変換.bONorOFF( str4[ 0 ] );
-											}
+											}*/
 											else if ( str3.Equals( "ViewerGuitar" ) )
 											{
 												this.bViewerGuitar有効 = C変換.bONorOFF( str4[ 0 ] );

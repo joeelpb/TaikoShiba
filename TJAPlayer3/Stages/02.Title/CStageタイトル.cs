@@ -15,9 +15,9 @@ namespace TJAPlayer3
 		{
 			base.eステージID = CStage.Eステージ.タイトル;
 			base.b活性化してない = true;
-			base.list子Activities.Add( this.actFIfromSetup = new CActFIFOWhite() );
-			base.list子Activities.Add( this.actFI = new CActFIFOWhite() );
-			base.list子Activities.Add( this.actFO = new CActFIFOWhite() );
+			base.list子Activities.Add(this.actFIfromSetup = new CActFIFOWhite());
+			base.list子Activities.Add(this.actFI = new CActFIFOWhite());
+			base.list子Activities.Add(this.actFO = new CActFIFOWhite());
 		}
 
 
@@ -25,13 +25,13 @@ namespace TJAPlayer3
 
 		public override void On活性化()
 		{
-			Trace.TraceInformation( "タイトルステージを活性化します。" );
+			Trace.TraceInformation("タイトルステージを活性化します。");
 			Trace.Indent();
 			try
 			{
-				for( int i = 0; i < 4; i++ )
+				for (int i = 0; i < 4; i++)
 				{
-					this.ctキー反復用[ i ] = new CCounter( 0, 0, 0, TJAPlayer3.Timer );
+					this.ctキー反復用[i] = new CCounter(0, 0, 0, TJAPlayer3.Timer);
 				}
 				this.ct上移動用 = new CCounter();
 				this.ct下移動用 = new CCounter();
@@ -41,19 +41,19 @@ namespace TJAPlayer3
 			}
 			finally
 			{
-				Trace.TraceInformation( "タイトルステージの活性化を完了しました。" );
+				Trace.TraceInformation("タイトルステージの活性化を完了しました。");
 				Trace.Unindent();
 			}
 		}
 		public override void On非活性化()
 		{
-			Trace.TraceInformation( "タイトルステージを非活性化します。" );
+			Trace.TraceInformation("タイトルステージを非活性化します。");
 			Trace.Indent();
 			try
 			{
-				for( int i = 0; i < 4; i++ )
+				for (int i = 0; i < 4; i++)
 				{
-					this.ctキー反復用[ i ] = null;
+					this.ctキー反復用[i] = null;
 				}
 				this.ct上移動用 = null;
 				this.ct下移動用 = null;
@@ -62,7 +62,7 @@ namespace TJAPlayer3
 			}
 			finally
 			{
-				Trace.TraceInformation( "タイトルステージの非活性化を完了しました。" );
+				Trace.TraceInformation("タイトルステージの非活性化を完了しました。");
 				Trace.Unindent();
 			}
 			base.On非活性化();
@@ -87,13 +87,13 @@ namespace TJAPlayer3
 		}
 		public override int On進行描画()
 		{
-			if( !base.b活性化してない )
+			if (!base.b活性化してない)
 			{
 				#region [ 初めての進行描画 ]
 				//---------------------
-				if( base.b初めての進行描画 )
+				if (base.b初めての進行描画)
 				{
-					if( TJAPlayer3.r直前のステージ == TJAPlayer3.stage起動 )
+					if (TJAPlayer3.r直前のステージ == TJAPlayer3.stage起動)
 					{
 						this.actFIfromSetup.tフェードイン開始();
 						base.eフェーズID = CStage.Eフェーズ.タイトル_起動画面からのフェードイン;
@@ -103,11 +103,11 @@ namespace TJAPlayer3
 						this.actFI.tフェードイン開始();
 						base.eフェーズID = CStage.Eフェーズ.共通_フェードイン;
 					}
-					this.ctカーソルフラッシュ用.t開始( 0, 700, 5, TJAPlayer3.Timer );
+					this.ctカーソルフラッシュ用.t開始(0, 700, 5, TJAPlayer3.Timer);
 					this.ctカーソルフラッシュ用.n現在の値 = 100;
 					soundタイトルスタート音_Played = false;
 					base.b初めての進行描画 = false;
-                }
+				}
 				//---------------------
 				#endregion
 
@@ -136,8 +136,8 @@ namespace TJAPlayer3
 					CreditStatus = 3;
 				}
 
-				if(CreditStatus != 3)
-                {
+				if (CreditStatus != 3)
+				{
 					if (TJAPlayer3.Skin.soundEntry.b再生中)
 						TJAPlayer3.Skin.soundEntry.t停止する();
 					TJAPlayer3.Skin.soundEntry.t再生する();
@@ -147,10 +147,10 @@ namespace TJAPlayer3
 
 				#region [ カーソル上移動 ]
 				//---------------------
-				if ( this.ct上移動用.b進行中 )
+				if (this.ct上移動用.b進行中)
 				{
 					this.ct上移動用.t進行();
-					if( this.ct上移動用.b終了値に達した )
+					if (this.ct上移動用.b終了値に達した)
 					{
 						this.ct上移動用.t停止();
 					}
@@ -159,10 +159,10 @@ namespace TJAPlayer3
 				#endregion
 				#region [ カーソル下移動 ]
 				//---------------------
-				if( this.ct下移動用.b進行中 )
+				if (this.ct下移動用.b進行中)
 				{
 					this.ct下移動用.t進行();
-					if( this.ct下移動用.b終了値に達した )
+					if (this.ct下移動用.b終了値に達した)
 					{
 						this.ct下移動用.t停止();
 					}
@@ -177,10 +177,10 @@ namespace TJAPlayer3
 
 				// キー入力
 
-				if( base.eフェーズID == CStage.Eフェーズ.共通_通常状態 )	// 通常状態
+				if (base.eフェーズID == CStage.Eフェーズ.共通_通常状態)   // 通常状態
 				{
-					if ( TJAPlayer3.Input管理.Keyboard.bキーが押された( (int) Key.Escape ))
-                    {
+					if (TJAPlayer3.Input管理.Keyboard.bキーが押された((int)Key.Escape))
+					{
 						TJAPlayer3.Skin.sound取消音.t再生する();
 						this.n現在のカーソル行 = (int)E戻り値.EXIT - 1;
 						this.actFO.tフェードアウト開始();
@@ -188,21 +188,21 @@ namespace TJAPlayer3
 					}
 
 					this.ctキー反復用.Up.tキー反復(TJAPlayer3.Input管理.Keyboard.bキーが押されている((int)SlimDX.DirectInput.Key.LeftArrow) || TJAPlayer3.Pad.b押された(E楽器パート.DRUMS, Eパッド.LBlue), new CCounter.DGキー処理(this.tカーソルを上へ移動する));
-					this.ctキー反復用.R.tキー反復( TJAPlayer3.Pad.b押されているGB( Eパッド.HH ), new CCounter.DGキー処理( this.tカーソルを上へ移動する ) );
-					if( TJAPlayer3.Pad.b押された( E楽器パート.DRUMS, Eパッド.SD ) )
+					this.ctキー反復用.R.tキー反復(TJAPlayer3.Pad.b押されているGB(Eパッド.HH), new CCounter.DGキー処理(this.tカーソルを上へ移動する));
+					if (TJAPlayer3.Pad.b押された(E楽器パート.DRUMS, Eパッド.SD))
 						this.tカーソルを上へ移動する();
 
 					this.ctキー反復用.Down.tキー反復(TJAPlayer3.Input管理.Keyboard.bキーが押されている((int)SlimDX.DirectInput.Key.RightArrow) || TJAPlayer3.Pad.b押された(E楽器パート.DRUMS, Eパッド.RBlue), new CCounter.DGキー処理(this.tカーソルを下へ移動する));
-					this.ctキー反復用.B.tキー反復( TJAPlayer3.Pad.b押されているGB( Eパッド.BD ), new CCounter.DGキー処理( this.tカーソルを下へ移動する ) );
-					if( TJAPlayer3.Pad.b押された( E楽器パート.DRUMS, Eパッド.LT ) )
+					this.ctキー反復用.B.tキー反復(TJAPlayer3.Pad.b押されているGB(Eパッド.BD), new CCounter.DGキー処理(this.tカーソルを下へ移動する));
+					if (TJAPlayer3.Pad.b押された(E楽器パート.DRUMS, Eパッド.LT))
 						this.tカーソルを下へ移動する();
 
-					if( ( TJAPlayer3.Pad.b押されたDGB( Eパッド.CY ) || TJAPlayer3.Pad.b押された( E楽器パート.DRUMS, Eパッド.LRed ) ) || ( TJAPlayer3.Pad.b押された( E楽器パート.DRUMS, Eパッド.RRed) || ( TJAPlayer3.ConfigIni.bEnterがキー割り当てのどこにも使用されていない && TJAPlayer3.Input管理.Keyboard.bキーが押された( (int)SlimDX.DirectInput.Key.Return ) ) ) )
+					if ((TJAPlayer3.Pad.b押されたDGB(Eパッド.CY) || TJAPlayer3.Pad.b押された(E楽器パート.DRUMS, Eパッド.LRed)) || (TJAPlayer3.Pad.b押された(E楽器パート.DRUMS, Eパッド.RRed) || (TJAPlayer3.ConfigIni.bEnterがキー割り当てのどこにも使用されていない && TJAPlayer3.Input管理.Keyboard.bキーが押された((int)SlimDX.DirectInput.Key.Return))))
 					{
-						if (this.n現在のカーソル行 == (int) E戻り値.GAMESTART - 1)
+						if (this.n現在のカーソル行 == (int)E戻り値.GAMESTART - 1)
 						{
-							if(CreditStatus != 3)
-                            {
+							if (CreditStatus != 3)
+							{
 								switch (CreditStatus)
 								{
 									case 0:
@@ -221,8 +221,8 @@ namespace TJAPlayer3
 								this.actFO.tフェードアウト開始();
 								base.eフェーズID = CStage.Eフェーズ.共通_フェードアウト;
 							}
-                            else
-                            {
+							else
+							{
 								if (TJAPlayer3.Skin.soundCoinPrompt.b再生中)
 									TJAPlayer3.Skin.soundCoinPrompt.t停止する();
 								TJAPlayer3.Skin.soundCoinPrompt.t再生する();
@@ -234,7 +234,7 @@ namespace TJAPlayer3
 							this.actFO.tフェードアウト開始();
 							base.eフェーズID = CStage.Eフェーズ.共通_フェードアウト;
 						}
-						else if( this.n現在のカーソル行 == (int)E戻り値.EXIT - 1 )
+						else if (this.n現在のカーソル行 == (int)E戻り値.EXIT - 1)
 						{
 							TJAPlayer3.Skin.sound取消音.t再生する();
 							this.actFO.tフェードアウト開始();
@@ -244,21 +244,21 @@ namespace TJAPlayer3
 					//					if ( CDTXMania.Input管理.Keyboard.bキーが押された( (int) Key.Space ) )
 					//						Trace.TraceInformation( "DTXMania Title: SPACE key registered. " + CDTXMania.ct.nシステム時刻 );
 					if (TJAPlayer3.Input管理.Keyboard.bキーが押された((int)Key.Pause))
-                    {
+					{
 						isEasterEgg = !isEasterEgg;
-                    }
+					}
 				}
 
-                // 描画
+				// 描画
 
-                if (!isEasterEgg)
-                {
+				if (!isEasterEgg)
+				{
 					TJAPlayer3.Tx.Title_Background?.t2D描画(TJAPlayer3.app.Device, 0, 0);
 
 					if (TJAPlayer3.Tx.Title_Menu != null)
 					{
 						int y = MENU_X;
-						int x = MENU_Y + (this.n現在のカーソル行 * 202 );
+						int x = MENU_Y + (this.n現在のカーソル行 * 202);
 						if (this.ct上移動用.b進行中)
 						{
 							//y += (int)((double)MENU_H / 2 * (Math.Cos(Math.PI * (((double)this.ct上移動用.n現在の値) / 100.0)) + 1.0));
@@ -289,53 +289,53 @@ namespace TJAPlayer3
 						//TJAPlayer3.Tx.Title_Menu.t2D描画(TJAPlayer3.app.Device, MENU_X, MENU_Y, new Rectangle(0, 0, MENU_W, MENU_H));
 						//TJAPlayer3.Tx.Title_Menu.t2D描画(TJAPlayer3.app.Device, MENU_X, MENU_Y + MENU_H, new Rectangle(0, MENU_H * 2, MENU_W, MENU_H * 2));
 					}
-                }
-                else
-                {
+				}
+				else
+				{
 					TJAPlayer3.Tx.Title_R1_Background.t2D描画(TJAPlayer3.app.Device, 0, 0);
 					TJAPlayer3.Tx.Title_R1_Logo.t2D描画(TJAPlayer3.app.Device, 308 + TJAPlayer3.Random.Next(1, 25), 58 + TJAPlayer3.Random.Next(1, 25));
 					soundタイトルスタート音_Played = false;
-					if(!TJAPlayer3.Skin.soundTitle_R1_BGM.b再生中)
+					if (!TJAPlayer3.Skin.soundTitle_R1_BGM.b再生中)
 						TJAPlayer3.Skin.soundTitle_R1_BGM.t再生する();
 				}
 
-                //CDTXMania.act文字コンソール.tPrint(0, 80, C文字コンソール.Eフォント種別.白, point.X.ToString());
-                //CDTXMania.act文字コンソール.tPrint(0, 100, C文字コンソール.Eフォント種別.白, point.Y.ToString());
-                //CDTXMania.act文字コンソール.tPrint(0, 120, C文字コンソール.Eフォント種別.白, scaling.ToString());
+				//CDTXMania.act文字コンソール.tPrint(0, 80, C文字コンソール.Eフォント種別.白, point.X.ToString());
+				//CDTXMania.act文字コンソール.tPrint(0, 100, C文字コンソール.Eフォント種別.白, point.Y.ToString());
+				//CDTXMania.act文字コンソール.tPrint(0, 120, C文字コンソール.Eフォント種別.白, scaling.ToString());
 
 
-                CStage.Eフェーズ eフェーズid = base.eフェーズID;
-				switch( eフェーズid )
+				CStage.Eフェーズ eフェーズid = base.eフェーズID;
+				switch (eフェーズid)
 				{
 					case CStage.Eフェーズ.共通_フェードイン:
-						if( this.actFI.On進行描画() != 0 )
+						if (this.actFI.On進行描画() != 0)
 						{
 							base.eフェーズID = CStage.Eフェーズ.共通_通常状態;
 						}
 						break;
 
 					case CStage.Eフェーズ.共通_フェードアウト:
-						if( this.actFO.On進行描画() == 0 )
+						if (this.actFO.On進行描画() == 0)
 						{
 							break;
 						}
 						base.eフェーズID = CStage.Eフェーズ.共通_終了状態;
-						switch ( this.n現在のカーソル行 )
+						switch (this.n現在のカーソル行)
 						{
 							case (int)E戻り値.GAMESTART - 1:
 								return (int)E戻り値.CONFIG;
 
 
-							case (int) E戻り値.CONFIG - 1:
+							case (int)E戻り値.CONFIG - 1:
 								return (int)E戻り値.GAMESTART;
 							case (int)E戻り値.EXIT - 1:
-								return (int) E戻り値.EXIT;
+								return (int)E戻り値.EXIT;
 								//return ( this.n現在のカーソル行 + 1 );
 						}
 						break;
 
 					case CStage.Eフェーズ.タイトル_起動画面からのフェードイン:
-						if( this.actFIfromSetup.On進行描画() != 0 )
+						if (this.actFIfromSetup.On進行描画() != 0)
 						{
 							base.eフェーズID = CStage.Eフェーズ.共通_通常状態;
 						}
@@ -348,7 +348,7 @@ namespace TJAPlayer3
 		{
 			継続 = 0,
 			GAMESTART,
-//			OPTION,
+			//			OPTION,
 			CONFIG,
 			EXIT
 		}
@@ -358,18 +358,18 @@ namespace TJAPlayer3
 
 		#region [ private ]
 		//-----------------
-		[StructLayout( LayoutKind.Sequential )]
+		[StructLayout(LayoutKind.Sequential)]
 		private struct STキー反復用カウンタ
 		{
 			public CCounter Up;
 			public CCounter Down;
 			public CCounter R;
 			public CCounter B;
-			public CCounter this[ int index ]
+			public CCounter this[int index]
 			{
 				get
 				{
-					switch( index )
+					switch (index)
 					{
 						case 0:
 							return this.Up;
@@ -387,7 +387,7 @@ namespace TJAPlayer3
 				}
 				set
 				{
-					switch( index )
+					switch (index)
 					{
 						case 0:
 							this.Up = value;
@@ -429,12 +429,12 @@ namespace TJAPlayer3
 
 		private void tカーソルを下へ移動する()
 		{
-			if ( this.n現在のカーソル行 != (int) E戻り値.EXIT - 1 )
+			if (this.n現在のカーソル行 != (int)E戻り値.EXIT - 1)
 			{
 				TJAPlayer3.Skin.soundカーソル移動音.t再生する();
 				this.n現在のカーソル行++;
-				this.ct下移動用.t開始( 0, 100, 1, TJAPlayer3.Timer );
-				if( this.ct上移動用.b進行中 )
+				this.ct下移動用.t開始(0, 100, 1, TJAPlayer3.Timer);
+				if (this.ct上移動用.b進行中)
 				{
 					this.ct下移動用.n現在の値 = 100 - this.ct上移動用.n現在の値;
 					this.ct上移動用.t停止();
@@ -443,12 +443,12 @@ namespace TJAPlayer3
 		}
 		private void tカーソルを上へ移動する()
 		{
-			if ( this.n現在のカーソル行 != (int) E戻り値.GAMESTART - 1 )
+			if (this.n現在のカーソル行 != (int)E戻り値.GAMESTART - 1)
 			{
 				TJAPlayer3.Skin.soundカーソル移動音.t再生する();
 				this.n現在のカーソル行--;
-				this.ct上移動用.t開始( 0, 100, 1, TJAPlayer3.Timer );
-				if( this.ct下移動用.b進行中 )
+				this.ct上移動用.t開始(0, 100, 1, TJAPlayer3.Timer);
+				if (this.ct下移動用.b進行中)
 				{
 					this.ct上移動用.n現在の値 = 100 - this.ct下移動用.n現在の値;
 					this.ct下移動用.t停止();

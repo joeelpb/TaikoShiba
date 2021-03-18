@@ -328,7 +328,7 @@ namespace TJAPlayer3
 				stqMenuTitle.txName.t2D描画( TJAPlayer3.app.Device, x, y );
 				#endregion
 				#region [ カーソル描画 ]
-				if ( TJAPlayer3.Tx.Menu_Highlight != null )
+				/*if ( TJAPlayer3.Tx.Menu_Highlight != null )
 				{
 					int height = 32;
 					int curX = 180;
@@ -342,7 +342,7 @@ namespace TJAPlayer3
 						curX += 16;
 					}
                     TJAPlayer3.Tx.Menu_Highlight.t2D描画( TJAPlayer3.app.Device, curX, curY, new Rectangle( 0x10, 0, 16, 32 ) );
-				}
+				}*/
 				#endregion
 				#region [ ソート候補文字列描画 ]
 				for ( int i = 0; i < lciMenuItems.Length; i++ )

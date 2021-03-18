@@ -125,7 +125,7 @@ namespace TJAPlayer3
 			get;
 			private set;
 		}
-		public bool TimeStretch
+		/*public bool TimeStretch
 		{
 			get;
 			private set;
@@ -134,7 +134,7 @@ namespace TJAPlayer3
 		{
 			get;
 			private set;
-		}
+		}*/
 		public bool VSyncWait
 		{
 			get;
@@ -161,8 +161,8 @@ namespace TJAPlayer3
 			this.previewFilename = "";
 			this.GRmode = false;
 			this.lastGRmode = false;
-			this.TimeStretch = false;
-			this.lastTimeStretch = false;
+			//this.TimeStretch = false;
+			//this.lastTimeStretch = false;
 			this.VSyncWait = true;
 			this.lastVSyncWait = true;
 		}
@@ -189,13 +189,13 @@ namespace TJAPlayer3
 			// 前回とファイル名が異なるか、タイムスタンプが更新されているか、
 			// GRmode等の設定を変更したなら、DTX要更新
 			DateTime current_timestamp = File.GetLastWriteTime( filename );
-			if ( last_path != filename || current_timestamp > last_timestamp ||
-				this.lastGRmode != this.GRmode || this.lastTimeStretch != this.TimeStretch || this.lastVSyncWait != this.VSyncWait )
+			if (last_path != filename || current_timestamp > last_timestamp);
+				//this.lastGRmode != this.GRmode || this.lastTimeStretch != this.TimeStretch || this.lastVSyncWait != this.VSyncWait )
 			{
 				this.last_path = filename;
 				this.last_timestamp = current_timestamp;
 				this.lastGRmode = this.GRmode;
-				this.lastTimeStretch = this.TimeStretch;
+				//this.lastTimeStretch = this.TimeStretch;
 				this.lastVSyncWait = this.VSyncWait;
 
 				this.NeedReload = true;
@@ -328,11 +328,11 @@ namespace TJAPlayer3
 								break;
 							#endregion
 						}
-						#region [ GRmode, TimeStretch, VSyncWait ]
+						#region [ GRmode, VSyncWait ]
 						{
 							// Reload判定は、-Nのところで行う
 							this.GRmode =      ( arg[ 0 ] == 'Y' );
-							this.TimeStretch = ( arg[ 1 ] == 'Y' );
+							//this.TimeStretch = ( arg[ 1 ] == 'Y' );
 							this.VSyncWait =   ( arg[ 2 ] == 'Y' );
 
 							arg = arg.Substring( 3 );
@@ -404,7 +404,7 @@ Trace.TraceInformation( "Command: " + s[ (int) this.Command ] );
 			cc.nViewerScrollSpeed     = TJAPlayer3.ConfigIni.n譜面スクロール速度;
 			cc.bViewerShowDebugStatus = TJAPlayer3.ConfigIni.b演奏情報を表示する;
 			cc.bViewerVSyncWait       = TJAPlayer3.ConfigIni.b垂直帰線待ちを行う;
-			cc.bViewerTimeStretch     = TJAPlayer3.ConfigIni.bTimeStretch;
+			//cc.bViewerTimeStretch     = TJAPlayer3.ConfigIni.bTimeStretch;
 			cc.bViewerDrums有効       = true;
 
 			cc.t書き出し( path );
