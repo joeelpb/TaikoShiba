@@ -76,6 +76,11 @@ namespace TJAPlayer3
 				"Return to left menu." );
 			this.list項目リスト.Add( this.iSystemReturnToMenu );
 
+			this.iSystemGoToKeyAssign = new CItemBase("Key Configuration", CItemBase.Eパネル種別.通常,
+"システムのキー入力に関する項目を設\n定します。",
+"Settings for the system key/pad inputs.");
+			this.list項目リスト.Add(this.iSystemGoToKeyAssign);
+
 			this.iSystemReloadDTX = new CItemBase("Reload Songs", CItemBase.Eパネル種別.通常,
 				"曲データの一覧情報を取得し直します。",
 				"Reload song data." );
@@ -477,15 +482,7 @@ namespace TJAPlayer3
 
 
 
-            this.iSystemSkinSubfolder = new CItemList("Skin", CItemBase.Eパネル種別.通常, nSkinIndex,
-                "スキン切替：\n" +
-                "スキンを切り替えます。\n",
-                //"CONFIGURATIONを抜けると、設定した\n" +
-                //"スキンに変更されます。",
-                "Skin:\n" +
-                "Change skin.",
-                skinNames);
-            this.list項目リスト.Add(this.iSystemSkinSubfolder);
+
             //this.iSystemUseBoxDefSkin = new CItemToggle( "Skin (Box)", CDTXMania.ConfigIni.bUseBoxDefSkin,
             //	"Music boxスキンの利用：\n" +
             //	"特別なスキンが設定されたMusic box\n" +
@@ -498,12 +495,6 @@ namespace TJAPlayer3
             //	"Automatically change skin\n" +
             //	"specified in box.def file." );
             //this.list項目リスト.Add( this.iSystemUseBoxDefSkin );
-
-
-            this.iSystemGoToKeyAssign = new CItemBase( "Key Configuration", CItemBase.Eパネル種別.通常,
-			"システムのキー入力に関する項目を設\n定します。",
-			"Settings for the system key/pad inputs." );
-			this.list項目リスト.Add( this.iSystemGoToKeyAssign );
 
             OnListMenuの初期化();
 			this.n現在の選択項目 = 0;
@@ -523,68 +514,78 @@ namespace TJAPlayer3
 			this.list項目リスト.Add( this.iDrumsReturnToMenu );
 
 			#region [ AutoPlay ]
-            //this.iDrumsAutoPlayAll = new CItemThreeState( "AutoPlay (All)", CItemThreeState.E状態.不定,
-            //    "全パッドの自動演奏の ON/OFF を\n" +
-            //    "まとめて切り替えます。",
-            //    "You can change whether Auto or not\n" +
-            //    " for all drums lanes at once." );
-            //this.list項目リスト.Add( this.iDrumsAutoPlayAll );
+			//this.iDrumsAutoPlayAll = new CItemThreeState( "AutoPlay (All)", CItemThreeState.E状態.不定,
+			//    "全パッドの自動演奏の ON/OFF を\n" +
+			//    "まとめて切り替えます。",
+			//    "You can change whether Auto or not\n" +
+			//    " for all drums lanes at once." );
+			//this.list項目リスト.Add( this.iDrumsAutoPlayAll );
 
-            //this.iDrumsLeftCymbal = new CItemToggle( "    LeftCymbal", CDTXMania.ConfigIni.bAutoPlay.LC,
-            //    "左シンバルを自動で演奏します。",
-            //    "To play LeftCymbal automatically." );
-            //this.list項目リスト.Add( this.iDrumsLeftCymbal );
+			//this.iDrumsLeftCymbal = new CItemToggle( "    LeftCymbal", CDTXMania.ConfigIni.bAutoPlay.LC,
+			//    "左シンバルを自動で演奏します。",
+			//    "To play LeftCymbal automatically." );
+			//this.list項目リスト.Add( this.iDrumsLeftCymbal );
 
-            //this.iDrumsHiHat = new CItemToggle( "    HiHat", CDTXMania.ConfigIni.bAutoPlay.HH,
-            //    "ハイハットを自動で演奏します。\n" +
-            //    "（クローズ、オープンとも）",
-            //    "To play HiHat automatically.\n" +
-            //    "(It effects to both HH-close and\n HH-open)" );
-            //this.list項目リスト.Add( this.iDrumsHiHat );
+			//this.iDrumsHiHat = new CItemToggle( "    HiHat", CDTXMania.ConfigIni.bAutoPlay.HH,
+			//    "ハイハットを自動で演奏します。\n" +
+			//    "（クローズ、オープンとも）",
+			//    "To play HiHat automatically.\n" +
+			//    "(It effects to both HH-close and\n HH-open)" );
+			//this.list項目リスト.Add( this.iDrumsHiHat );
 
-            //this.iDrumsSnare = new CItemToggle( "    Snare", CDTXMania.ConfigIni.bAutoPlay.SD,
-            //    "スネアを自動で演奏します。",
-            //    "To play Snare automatically." );
-            //this.list項目リスト.Add( this.iDrumsSnare );
+			//this.iDrumsSnare = new CItemToggle( "    Snare", CDTXMania.ConfigIni.bAutoPlay.SD,
+			//    "スネアを自動で演奏します。",
+			//    "To play Snare automatically." );
+			//this.list項目リスト.Add( this.iDrumsSnare );
 
-            //this.iDrumsBass = new CItemToggle( "    BassDrum", CDTXMania.ConfigIni.bAutoPlay.BD,
-            //    "バスドラムを自動で演奏します。",
-            //    "To play Bass Drum automatically." );
-            //this.list項目リスト.Add( this.iDrumsBass );
+			//this.iDrumsBass = new CItemToggle( "    BassDrum", CDTXMania.ConfigIni.bAutoPlay.BD,
+			//    "バスドラムを自動で演奏します。",
+			//    "To play Bass Drum automatically." );
+			//this.list項目リスト.Add( this.iDrumsBass );
 
-            //this.iDrumsHighTom = new CItemToggle( "    HighTom", CDTXMania.ConfigIni.bAutoPlay.HT,
-            //    "ハイタムを自動で演奏します。",
-            //    "To play High Tom automatically." );
-            //this.list項目リスト.Add( this.iDrumsHighTom );
+			//this.iDrumsHighTom = new CItemToggle( "    HighTom", CDTXMania.ConfigIni.bAutoPlay.HT,
+			//    "ハイタムを自動で演奏します。",
+			//    "To play High Tom automatically." );
+			//this.list項目リスト.Add( this.iDrumsHighTom );
 
-            //this.iDrumsLowTom = new CItemToggle( "    LowTom", CDTXMania.ConfigIni.bAutoPlay.LT,
-            //    "ロータムを自動で演奏します。",
-            //    "To play Low Tom automatically." );
-            //this.list項目リスト.Add( this.iDrumsLowTom );
+			//this.iDrumsLowTom = new CItemToggle( "    LowTom", CDTXMania.ConfigIni.bAutoPlay.LT,
+			//    "ロータムを自動で演奏します。",
+			//    "To play Low Tom automatically." );
+			//this.list項目リスト.Add( this.iDrumsLowTom );
 
-            //this.iDrumsFloorTom = new CItemToggle( "    FloorTom", CDTXMania.ConfigIni.bAutoPlay.FT,
-            //    "フロアタムを自動で演奏します。",
-            //    "To play Floor Tom automatically." );
-            //this.list項目リスト.Add( this.iDrumsFloorTom );
+			//this.iDrumsFloorTom = new CItemToggle( "    FloorTom", CDTXMania.ConfigIni.bAutoPlay.FT,
+			//    "フロアタムを自動で演奏します。",
+			//    "To play Floor Tom automatically." );
+			//this.list項目リスト.Add( this.iDrumsFloorTom );
 
-            //this.iDrumsCymbalRide = new CItemToggle( "    Cym/Ride", CDTXMania.ConfigIni.bAutoPlay.CY,
-            //    "右シンバルとライドシンバルを自動で\n" +
-            //    "演奏します。",
-            //    "To play both right- and Ride-Cymbal\n" +
-            //    " automatically." );
-            //this.list項目リスト.Add( this.iDrumsCymbalRide );
+			//this.iDrumsCymbalRide = new CItemToggle( "    Cym/Ride", CDTXMania.ConfigIni.bAutoPlay.CY,
+			//    "右シンバルとライドシンバルを自動で\n" +
+			//    "演奏します。",
+			//    "To play both right- and Ride-Cymbal\n" +
+			//    " automatically." );
+			//this.list項目リスト.Add( this.iDrumsCymbalRide );
 
-            //this.iDrumsLeftPedal = new CItemToggle( "    LeftPedal", CDTXMania.ConfigIni.bAutoPlay.LP,
-            //    "左ペダルを自動で演奏します。",
-            //    "To play Floor Tom automatically." );
-            //this.list項目リスト.Add( this.iDrumsLeftPedal );
+			//this.iDrumsLeftPedal = new CItemToggle( "    LeftPedal", CDTXMania.ConfigIni.bAutoPlay.LP,
+			//    "左ペダルを自動で演奏します。",
+			//    "To play Floor Tom automatically." );
+			//this.list項目リスト.Add( this.iDrumsLeftPedal );
 
-            //this.iDrumsLeftBassDrum = new CItemToggle( "    LeftBassDrum", CDTXMania.ConfigIni.bAutoPlay.LBD,
-            //    "左バスドラムを自動で\n" +
-            //    "演奏します。",
-            //    "To play both LeftBassDrum\n" +
-            //    " automatically." );
-            //this.list項目リスト.Add( this.iDrumsLeftBassDrum );
+			//this.iDrumsLeftBassDrum = new CItemToggle( "    LeftBassDrum", CDTXMania.ConfigIni.bAutoPlay.LBD,
+			//    "左バスドラムを自動で\n" +
+			//    "演奏します。",
+			//    "To play both LeftBassDrum\n" +
+			//    " automatically." );
+			//this.list項目リスト.Add( this.iDrumsLeftBassDrum );
+
+			this.iSystemSkinSubfolder = new CItemList("Skin", CItemBase.Eパネル種別.通常, nSkinIndex,
+	"スキン切替：\n" +
+	"スキンを切り替えます。\n",
+	//"CONFIGURATIONを抜けると、設定した\n" +
+	//"スキンに変更されます。",
+	"Skin:\n" +
+	"Change skin.",
+	skinNames);
+			this.list項目リスト.Add(this.iSystemSkinSubfolder);
 
 			this.iTaikoAutoPlay = new CItemToggle( "AUTO PLAY", TJAPlayer3.ConfigIni.b太鼓パートAutoPlay,
 				"すべての音符を自動で演奏します。\n" +
@@ -1983,11 +1984,11 @@ namespace TJAPlayer3
 
 				// 描画。
 				
-				if( TJAPlayer3.Tx.Config_Arrow != null )
+				/*if( TJAPlayer3.Tx.Config_Arrow != null )
 				{
                     TJAPlayer3.Tx.Config_Arrow.t2D描画( TJAPlayer3.app.Device, x, y_upper, new Rectangle( 0, 0, 0x40, 0x18 ) );
                     TJAPlayer3.Tx.Config_Arrow.t2D描画( TJAPlayer3.app.Device, x, y_lower, new Rectangle( 0, 0x18, 0x40, 0x18 ) );
-				}
+				}*/
 			}
 			//-----------------
 			#endregion

@@ -134,7 +134,7 @@ namespace TJAPlayer3
             Config_Background2 = TxC(CONFIG + @"Background2.png");
             //Config_Cursor = TxC(CONFIG + @"Cursor.png");
             Config_ItemBox = TxC(CONFIG + @"ItemBox.png");
-            Config_Arrow = TxC(CONFIG + @"Arrow.png");
+            //Config_Arrow = TxC(CONFIG + @"Arrow.png");
             Config_KeyAssign = TxC(CONFIG + @"KeyAssign.png");
             Config_Font = TxC(CONFIG + @"Font.png");
             Config_Font_Bold = TxC(CONFIG + @"Font_Bold.png");
@@ -702,9 +702,9 @@ namespace TJAPlayer3
         #region 2_コンフィグ画面
         public CTexture Config_Background;
         public CTexture Config_Background2,
-            Config_Cursor,
+            //Config_Cursor,
             Config_ItemBox,
-            Config_Arrow,
+            //Config_Arrow,
             Config_KeyAssign,
             Config_Font,
             Config_Font_Bold,

@@ -195,7 +195,7 @@ namespace TJAPlayer3
 			#endregion
 			#region [ メニューカーソル ]
 			//---------------------
-			if( TJAPlayer3.Tx.Config_Cursor != null )
+			/*if( TJAPlayer3.Tx.Config_Cursor != null )
 			{
 				Rectangle rectangle;
                 TJAPlayer3.Tx.Config_Cursor.Opacity = this.bメニューにフォーカス中 ? 255 : 128;
@@ -215,7 +215,7 @@ namespace TJAPlayer3
                     TJAPlayer3.Tx.Config_Cursor.t2D描画( TJAPlayer3.app.Device, x, y, rectangle );
 					x += rectangle.Width;
 				}
-			}
+			}*/
 			//---------------------
 			#endregion
 			#region [ メニュー ]
