@@ -149,6 +149,8 @@ namespace TJAPlayer3
 					}
                     TJAPlayer3.Tx.Menu_Highlight.t2D描画( TJAPlayer3.app.Device, num2, num3, new Rectangle( 0x10, 0, 0x10, 0x20 ) );
 				*/}
+				if (TJAPlayer3.Tx.Config_Background2 != null)
+					TJAPlayer3.Tx.Config_Background2.t2D描画(TJAPlayer3.app.Device, 0, 0);
 				int num5 = 20;
 				int x = 610;
 				int y = 60;
@@ -189,6 +191,7 @@ namespace TJAPlayer3
 				{
                     TJAPlayer3.Tx.Config_KeyAssign.t2D描画( TJAPlayer3.app.Device, 0, 0 );
 				}
+				
 			}
 			return 0;
 		}

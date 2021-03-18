@@ -124,7 +124,7 @@ namespace TJAPlayer3
 				//this.tx上部パネル = CDTXMania.tテクスチャの生成( CSkin.Path( @"Graphics\4_header panel.png" ) );
 				//this.tx下部パネル = CDTXMania.tテクスチャの生成( CSkin.Path( @"Graphics\4_footer panel.png" ) );
 				//this.txMenuカーソル = CDTXMania.tテクスチャの生成( CSkin.Path( @"Graphics\ScreenConfig menu cursor.png" ) );
-			    string[] strMenuItem = {"General Settings", "InGame Settings", "Save & Quit"};
+			    string[] strMenuItem = {"General Settings", "InGame Settings", "Credits" };
 			    txMenuItemLeft = new CTexture[strMenuItem.Length, 2];
 			    using (var prvFont = new CPrivateFastFont(new FontFamily("FOT-大江戸勘亭流 Std E"), 20))
 			    {
@@ -590,8 +590,6 @@ namespace TJAPlayer3
 				switch( this.n現在のメニュー番号 )
 				{
 					case 0:
-						str[ 0, 0 ] = "システムに関係する項目を設定します。";
-						str[ 0, 1 ] = "";
 						str[ 1, 0 ] = "Settings for an overall systems.";
 						break;
 
@@ -616,8 +614,7 @@ namespace TJAPlayer3
 					//    str[1, 1] = "";
 					//    break;
 					case 1:
-						str[ 0, 0 ] = "ドラムの演奏に関する項目を設定します。";
-						str[ 0, 1 ] = "";
+
 						str[ 1, 0 ] = "Settings to play the drums.";
 						str[ 1, 1 ] = "";
 						break;
@@ -637,11 +634,16 @@ namespace TJAPlayer3
 					//	break;
 
 					case 2:
-						str[ 0, 0 ] = "設定を保存し、コンフィグ画面を終了します。";
-						str[ 0, 1 ] = "";
-						str[ 1, 0 ] = "Save the settings and exit from";
-						str[ 1, 1 ] = "CONFIGURATION menu.";
-						break;
+						str[ 1, 0 ] =
+
+				"TaikoShiba! Creator: OGApollo\n" +
+				"Special thanks to:\n" +
+				"·  東方好きren君\n" +
+				"·  KabanFriends & brian218\n" +
+				"·  AioiLight & twopointzero\n" +
+				"·  Locha\n" +
+				"·  \n"
+						; break;
 				}
 				
 				int c = (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ja") ? 0 : 1;
