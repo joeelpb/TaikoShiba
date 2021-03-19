@@ -134,9 +134,9 @@ namespace TJAPlayer3
 					TJAPlayer3.ConfigIni.KeyAssign[ (int) this.part ][ (int) this.pad ][ this.n現在の選択行 ].ID = 0;
 					TJAPlayer3.ConfigIni.KeyAssign[ (int) this.part ][ (int) this.pad ][ this.n現在の選択行 ].コード = 0;
 				}
-				/*if(TJAPlayer3.Tx.Menu_Highlight != null )
+				if(TJAPlayer3.Tx.Menu_Highlight != null )
 				{
-					int num = 20;
+				/*	int num = 20;
 					int num2 = 0x144 +300;
 					int num3 = 0x3e + ( num * ( this.n現在の選択行 + 1 ) );
                     TJAPlayer3.Tx.Menu_Highlight.t2D描画( TJAPlayer3.app.Device, num2, num3, new Rectangle( 0, 0, 0x10, 0x20 ) );
@@ -148,7 +148,7 @@ namespace TJAPlayer3
 						num2 += 0x10;
 					}
                     TJAPlayer3.Tx.Menu_Highlight.t2D描画( TJAPlayer3.app.Device, num2, num3, new Rectangle( 0x10, 0, 0x10, 0x20 ) );
-				}*/
+				*/}
 				if (TJAPlayer3.Tx.Config_Background2 != null)
 					TJAPlayer3.Tx.Config_Background2.t2D描画(TJAPlayer3.app.Device, 0, 0);
 				int num5 = 20;

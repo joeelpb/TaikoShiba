@@ -101,10 +101,10 @@ namespace TJAPlayer3
         public void LoadTexture()
         {
             #region 共通
-            Tile_Black = TxC(@"Misc/Tile_Black.png");
-            Tile_White = TxC(@"Misc/Tile_White.png");
+            Tile_Black = TxC(@"Tile_Black.png");
+            Tile_White = TxC(@"Tile_White.png");
             Menu_Title = TxC(@"Misc/MainBlank.png");
-            //Menu_Highlight = TxC(@"Misc/Menu_Highlight.png");
+            Menu_Highlight = TxC(@"Misc/Menu_Highlight.png");
             Enum_Song = TxC(@"MainBlank.png");
             Scanning_Loudness = TxC(@"MainBlank.png");
             Overlay = TxC(@"Overlay.png");
@@ -679,7 +679,7 @@ namespace TJAPlayer3
         public CTexture Tile_Black,
             Tile_White,
             Menu_Title,
-            //Menu_Highlight,
+            Menu_Highlight,
             Enum_Song,
             Scanning_Loudness,
             Overlay,

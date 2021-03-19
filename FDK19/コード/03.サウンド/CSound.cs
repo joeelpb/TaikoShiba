@@ -38,7 +38,7 @@ namespace FDK
 		
 		public static IntPtr WindowHandle;
 
-		//public static bool bIsTimeStretch = false;
+		public static bool bIsTimeStretch = false;
 
 		private static int _nMasterVolume;
 		public int nMasterVolume
@@ -557,15 +557,16 @@ namespace FDK
 							this.hBassStream = _hBassStream;
 				        }
 
-					/*	if ( CSound管理.bIsTimeStretch )
+						if ( CSound管理.bIsTimeStretch )
 						{
 							Bass.BASS_ChannelSetAttribute(this.hBassStream, BASSAttribute.BASS_ATTRIB_TEMPO, (float)(db再生速度 * 100 - 100));
 							//double seconds = Bass.BASS_ChannelBytes2Seconds( this.hTempoStream, nBytes );
 							//this.n総演奏時間ms = (int) ( seconds * 1000 );
 						}
+						else
 						{
 							Bass.BASS_ChannelSetAttribute(this.hBassStream, BASSAttribute.BASS_ATTRIB_FREQ, (float)(_db周波数倍率 * _db再生速度 * nオリジナルの周波数));
-						}*/
+						}
 					}
 					else
 					{

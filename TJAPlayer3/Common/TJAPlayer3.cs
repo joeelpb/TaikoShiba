@@ -1208,7 +1208,7 @@ for (int i = 0; i < 3; i++) {
 								{
 									TJAPlayer3.stage演奏ドラム画面.t再読込();
 
-									//TJAPlayer3.ConfigIni.bTimeStretch = DTXVmode.TimeStretch;
+									TJAPlayer3.ConfigIni.bTimeStretch = DTXVmode.TimeStretch;
 									//CSound管理.bIsTimeStretch = DTXVmode.TimeStretch;
 									if ( TJAPlayer3.ConfigIni.b垂直帰線待ちを行う != DTXVmode.VSyncWait )
 									{
@@ -2226,7 +2226,7 @@ for (int i = 0; i < 3; i++) {
 				}
 
 				ShowWindowTitleWithSoundType();
-				//FDK.CSound管理.bIsTimeStretch = TJAPlayer3.ConfigIni.bTimeStretch;
+				FDK.CSound管理.bIsTimeStretch = TJAPlayer3.ConfigIni.bTimeStretch;
 				Sound管理.nMasterVolume = TJAPlayer3.ConfigIni.nMasterVolume;
 				//FDK.CSound管理.bIsMP3DecodeByWindowsCodec = CDTXMania.ConfigIni.bNoMP3Streaming;
 				Trace.TraceInformation( "サウンドデバイスの初期化を完了しました。" );

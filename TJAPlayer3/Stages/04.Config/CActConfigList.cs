@@ -118,6 +118,7 @@ namespace TJAPlayer3
 			//this.list項目リスト.Add( this.iCommonDark );
 
 			this.iTaikoStopTimerByDefault = new CItemToggle("Stop Countdown", TJAPlayer3.ConfigIni.bStopTimerByDefault,
+			"デフォルトではタイマー停止。\nF8キーを押すとタイマーのオン/オフを切り替えることができます。",
 			"Stop the timer by default.\n" +
 			"You can still toggle the timer by\n" +
 			"pressing F8 key.");
@@ -127,25 +128,35 @@ namespace TJAPlayer3
 			this.list項目リスト.Add(this.iTaikoGameCost);*/
 
 			this.iTaikoPlayerCount = new CItemInteger( "Number of Players", 1, 2, TJAPlayer3.ConfigIni.nPlayerCount,
-                "Select the number of players.",
+                "プレイ人数切り替え：\n2にすると演奏画面が2人プレイ専用のレイアウトになり、2P専用譜面を読み込むようになります。",
                 "" );
             this.list項目リスト.Add( this.iTaikoPlayerCount );
 
-			this.iSystemRisky = new CItemInteger( "Hardcore Mode", 0, 10, TJAPlayer3.ConfigIni.nRisky,
-				"Perfect mode:\n" +
-				"Select the number of not perfect\n" +
-				"notes to fail the song.\n" +
-				"Set to 0 to disable Perfect mode." );
+			this.iSystemRisky = new CItemInteger( "Risky", 0, 10, TJAPlayer3.ConfigIni.nRisky,
+				"Riskyモードの設定:\n1以上の値にすると、その回数分の\nPoor/MissでFAILEDとなります。\n0にすると無効になり、\nDamageLevelに従ったゲージ増減と\nなります。\nStageFailedの設定と併用できます。",
+				"Risky mode:\nSet over 1, in case you'd like to specify\n the number of Poor/Miss times to be\n FAILED.\nSet 0 to disable Risky mode." );
 			this.list項目リスト.Add( this.iSystemRisky );
 
 			this.iCommonPlaySpeed = new CItemInteger("Song Speed", 5, 400, TJAPlayer3.ConfigIni.n演奏速度,
+				"曲の演奏速度を、速くしたり遅くした\n" +
+				"りすることができます。\n" +
+				"（※一部のサウンドカードでは正しく\n" +
+				"　再生できない可能性があります。）\n" +
+				"\n" +
+				"TimeStretchがONのときに、演奏\n" +
+				"速度をx0.850以下にすると、チップの\n" +
+				"ズレが大きくなります。",
 				"It changes the song speed.\n" +
 				"For example, you can play in half\n" +
-				"speed by setting it to 0.500");
-
+				" speed by setting PlaySpeed = 0.500\n" +
+				" for your practice.\n" +
+				"\n" +
+				"Note: It also changes the songs' pitch.\n" +
+				"In case TimeStretch=ON, some sound\n" +
+				"lag occurs slower than x0.900.");
 			this.list項目リスト.Add( this.iCommonPlaySpeed );
 
-			/*this.iSystemTimeStretch = new CItemToggle( "Time Stretch", TJAPlayer3.ConfigIni.bTimeStretch,
+			this.iSystemTimeStretch = new CItemToggle( "Time Stretch", TJAPlayer3.ConfigIni.bTimeStretch,
 				"演奏速度の変更方式:\n" + 
 				"ONにすると、演奏速度の変更を、\n" +
 				"周波数変更ではなく\n" +
@@ -162,15 +173,16 @@ namespace TJAPlayer3
 				"If you set TimeStretch=ON, it usese\n" +
 				"more CPU power. And some sound\n" +
 				"lag occurs slower than x0.900.");
-			this.list項目リスト.Add( this.iSystemTimeStretch );*/
+			this.list項目リスト.Add( this.iSystemTimeStretch );
 
 
 			this.iSystemFullscreen = new CItemToggle( "Fullscreen Mode", TJAPlayer3.ConfigIni.b全画面モード,
-				"Turn ON to play in fullscreen (recommended)");
+				"画面モード設定：\nON で全画面モード、OFF でウィンド\nウモードになります。",
+				"Fullscreen mode or window mode." );
 			this.list項目リスト.Add( this.iSystemFullscreen );
 			this.iSystemStageFailed = new CItemToggle( "Stage Failed", TJAPlayer3.ConfigIni.bSTAGEFAILED有効,
-				"Turn OFF if you don't want to\n" +
-				"encount GAME OVER." );
+				"STAGE FAILED 有効：\nON にすると、ゲージがなくなった時\nに STAGE FAILED となり演奏が中断\nされます。OFF の場合は、ゲージが\nなくなっても最後まで演奏できます。",
+				"Turn OFF if you don't want to encount\n GAME OVER." );
 			this.list項目リスト.Add( this.iSystemStageFailed );
 			this.iSystemRandomFromSubBox = new CItemToggle( "Random Sub Box", TJAPlayer3.ConfigIni.bランダムセレクトで子BOXを検索対象とする,
 				"子BOXをRANDOMの対象とする：\nON にすると、RANDOM SELECT 時\nに子BOXも選択対象とします。",
@@ -591,7 +603,10 @@ namespace TJAPlayer3
 			this.list項目リスト.Add( this.iTaikoAutoPlay2P );
 
 			this.iTaikoAutoRoll = new CItemToggle( "Auto Roll", TJAPlayer3.ConfigIni.bAuto先生の連打,
-				"automatically." );
+				"OFFにするとAUTO先生が黄色連打を\n" +
+				"叩かなくなります。",
+				"To play both Taiko\n" +
+				" automatically." );
 			this.list項目リスト.Add( this.iTaikoAutoRoll );
 			#endregion
 
@@ -2107,7 +2122,7 @@ namespace TJAPlayer3
 		private CItemToggle iSystemSoundTimerType;			// #33689 2014.6.17 yyagi
 		private int iSystemSoundTimerType_initial;			// #33689 2014.6.17 yyagi
 
-		//private CItemToggle iSystemTimeStretch;				// #23664 2013.2.24 yyagi
+		private CItemToggle iSystemTimeStretch;				// #23664 2013.2.24 yyagi
 		private CItemList iSystemJudgePosGuitar;			// #33891 2014.6.26 yyagi
 		private CItemList iSystemJudgePosBass;				// #33891 2014.6.26 yyagi
 
@@ -2369,7 +2384,7 @@ namespace TJAPlayer3
 			TJAPlayer3.ConfigIni.nASIODevice = this.iSystemASIODevice.n現在選択されている項目番号;			// #24820 2013.1.17 yyagi
 			TJAPlayer3.ConfigIni.bUseOSTimer = this.iSystemSoundTimerType.bON;								// #33689 2014.6.17 yyagi
 
-			//TJAPlayer3.ConfigIni.bTimeStretch = this.iSystemTimeStretch.bON;									// #23664 2013.2.24 yyagi
+			TJAPlayer3.ConfigIni.bTimeStretch = this.iSystemTimeStretch.bON;									// #23664 2013.2.24 yyagi
 //Trace.TraceInformation( "saved" );
 //Trace.TraceInformation( "Skin現在Current : " + CDTXMania.Skin.GetCurrentSkinSubfolderFullName(true) );
 //Trace.TraceInformation( "Skin現在System  : " + CSkin.strSystemSkinSubfolderFullName );

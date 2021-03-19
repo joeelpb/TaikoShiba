@@ -2634,11 +2634,11 @@ namespace TJAPlayer3
 					TJAPlayer3.DTX.t各自動再生音チップの再生時刻を変更する((keyboard.bキーが押されている((int)SlimDX.DirectInput.Key.LeftControl) || keyboard.bキーが押されている((int)SlimDX.DirectInput.Key.RightControl)) ? -1 : -10);
 					TJAPlayer3.DTX.tWave再生位置自動補正();
 				}
-				else if (keyboard.bキーが押された((int)SlimDX.DirectInput.Key.UpArrow))
+				else if (keyboard.bキーが押された((int)SlimDX.DirectInput.Key.RightArrow))
 				{   // UpArrow(scrollspeed up)
 					ドラムスクロール速度アップ();
 				}
-				else if (keyboard.bキーが押された((int)SlimDX.DirectInput.Key.DownArrow))
+				else if (keyboard.bキーが押された((int)SlimDX.DirectInput.Key.LeftArrow))
 				{   // DownArrow (scrollspeed down)
 					ドラムスクロール速度ダウン();
 				}
@@ -2646,14 +2646,14 @@ namespace TJAPlayer3
 				{   // del (debug info)
 					TJAPlayer3.ConfigIni.b演奏情報を表示する = !TJAPlayer3.ConfigIni.b演奏情報を表示する;
 				}
-				else if (keyboard.bキーが押された((int)SlimDX.DirectInput.Key.LeftArrow))      // #24243 2011.1.16 yyagi UI for InputAdjustTime in playing screen.
+				/*else if (keyboard.bキーが押された((int)SlimDX.DirectInput.Key.LeftArrow))      // #24243 2011.1.16 yyagi UI for InputAdjustTime in playing screen.
 				{
 					ChangeInputAdjustTimeInPlaying(keyboard, -1);
 				}
 				else if (keyboard.bキーが押された((int)SlimDX.DirectInput.Key.RightArrow))     // #24243 2011.1.16 yyagi UI for InputAdjustTime in playing screen.
 				{
 					ChangeInputAdjustTimeInPlaying(keyboard, +1);
-				}
+				}*/
 				else if ((base.eフェーズID == CStage.Eフェーズ.共通_通常状態) && (keyboard.bキーが押された((int)SlimDX.DirectInput.Key.Escape) || TJAPlayer3.Pad.b押されたGB(Eパッド.FT)) && !this.actPauseMenu.bIsActivePopupMenu)
 				{   // escape (exit)
 					this.t演奏中止();
