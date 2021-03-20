@@ -1208,7 +1208,7 @@ for (int i = 0; i < 3; i++) {
 								{
 									TJAPlayer3.stage演奏ドラム画面.t再読込();
 
-									TJAPlayer3.ConfigIni.bTimeStretch = DTXVmode.TimeStretch;
+									//TJAPlayer3.ConfigIni.bTimeStretch = DTXVmode.TimeStretch;
 									//CSound管理.bIsTimeStretch = DTXVmode.TimeStretch;
 									if ( TJAPlayer3.ConfigIni.b垂直帰線待ちを行う != DTXVmode.VSyncWait )
 									{

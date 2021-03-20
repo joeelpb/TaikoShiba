@@ -2573,8 +2573,8 @@ namespace TJAPlayer3
         public int SongSelect_Title_Y = 0;
         public int Difficulty_Title_X = 0;
         public int Difficulty_Title_Y = 0;
-        public int[] SongSelect_NamePlate_X = new int[] { 2, 1015 };
-        public int[] SongSelect_NamePlate_Y = new int[] { 610, 610 };
+        public int[] SongSelect_NamePlate_X = new int[] { 15, 1028 };
+        public int[] SongSelect_NamePlate_Y = new int[] { 601, 601 };
         public int[] SongSelect_Auto_X = new int[] { 33, 1046 };
         public int[] SongSelect_Auto_Y = new int[] { 674, 674 };
         public Color SongSelect_ForeColor_JPOP = ColorTranslator.FromHtml("#FFFFFF");
