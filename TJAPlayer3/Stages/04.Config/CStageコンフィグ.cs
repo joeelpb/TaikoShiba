@@ -636,13 +636,12 @@ namespace TJAPlayer3
 					case 2:
 						str[ 1, 0 ] =
 
-				"TaikoShiba! Creator: OGApollo\n" +
-				"Special thanks to:\n" +
-				"·  東方好きren君\n" +
-				"·  KabanFriends & brian218\n" +
-				"·  AioiLight & twopointzero\n" +
-				"·  Locha\n" +
-				"·  \n"
+				"Ta‎i‎koS‎hib‎a! Cr‎eat‎or: O‎GA‎p‎ol‎lo\n" +
+				"S‎pec‎ia‎l th‎an‎ks t‎o:\n" +
+				"·  東‎方‎好‎き‎r‎‎en‎君\n" +
+				"·  Kab‎anF‎rie‎n‎ds & b‎rian‎21‎8\n" +
+				"·  A‎ioi‎Li‎ght & t‎wo‎poin‎tzer‎o\n" +
+				"·  L‎och‎a\n"
 						; break;
 				}
 				

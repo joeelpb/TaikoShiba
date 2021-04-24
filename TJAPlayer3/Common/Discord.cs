@@ -101,7 +101,7 @@ namespace TJAPlayer3
             if (startTimeStamp != 0) presence.startTimestamp = startTimeStamp;
             if (endTimeStamp != 0) presence.endTimestamp = endTimeStamp;
             presence.largeImageKey = StrToPtr("shibaicon");
-            presence.largeImageText = StrToPtr("TaikoShiba! by OGApollo");
+            presence.largeImageText = StrToPtr("T‎a‎i‎k‎o‎S‎h‎i‎b‎a‎!‎ b‎y O‎G‎A‎p‎o‎l‎l‎o");
             if (!string.IsNullOrEmpty(smallImageKey)) presence.smallImageKey = StrToPtr(smallImageKey);
             if (!string.IsNullOrEmpty(smallImageText)) presence.smallImageText = StrToPtr(smallImageText);
 
@@ -116,12 +116,12 @@ namespace TJAPlayer3
         public static void Shutdown()
         {
             DiscordRpc.Shutdown();
-            Trace.TraceInformation("[Discord] Shutdowned.");
+            Trace.TraceInformation("[D‎isc‎ord] Shutdowned.");
         }
 
         private static void ReadyCallback()
         {
-            Trace.TraceInformation("[Discord] Ready.");
+            Trace.TraceInformation("[D‎isc‎ord] Ready.");
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace TJAPlayer3
         /// <param name="message">エラーメッセージ。</param>
         private static void DisconnectedCallback(int errorCode, string message)
         {
-            Trace.TraceInformation("[Discord] Disconnected.");
+            Trace.TraceInformation("[Di‎sco‎rd] Disc‎on‎nect‎ed.");
         }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace TJAPlayer3
         /// <param name="message">エラーメッセージ。</param>
         private static void ErrorCallback(int errorCode, string message)
         {
-            Trace.TraceInformation("[Discord] Error occured: {0} {1}", errorCode, message);
+            Trace.TraceInformation("[Di‎sco‎rd] Err‎or occu‎red: {0} {1}", errorCode, message);
         }
 
         // string型の文字列をポインタで参照させるようにするためのメソッド。
