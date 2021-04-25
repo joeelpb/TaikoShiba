@@ -1,39 +1,33 @@
-# TaikoShiba
-DTXManiaをいじってtja再生プログラムにしちゃった[TJAPlayer2fPC](https://github.com/kairera0467/TJAP2fPC)をForkしてグリーン風に改造したアレをForkしてニジイロ風に改造したアレ。  
+# TaikoShiba! - By OGApollo
 
-このプログラムを使用した不具合・問題については責任を負いかねます。
+## [TJAPlayer2fPC] 
+	➤ (https://github.com/kairera0467/TJAP2fPC)
 
-## How 2 Build
-- VisualStudio 2017 & C# 7.3
-- VC++ toolset
-- SlimDX用の署名
+## How to build?
+	➤ VisualStudio 2017 & C # 7.3
+	➤ VC ++ toolset
+	➤ Signature for SlimDX
 
-## ライセンス関係
-Fork元のFork元より引用。
+## Libraries Used:
+	➤ bass
+	➤ Bass.Net
+	➤ DirectShowLib
+	➤ FDK21
+	➤ SlimDX
+	➤ xadec
+	➤ IPA font
+	➤ libogg
+	➤ libvorbis
+	➤ It is recorded in "Runtime folder / Licenses".
+	➤ Also, this program is based on FROM's "DTXMania".
 
-> 以下のライブラリを使用しています。
-> * bass
-> * Bass.Net
-> * DirectShowLib
-> * FDK21
-> * SlimDX
-> * xadec
-> * IPAフォント
-> * libogg
-> *libvorbis
-> 「実行時フォルダ/Licenses」に収録しています。
-> 
-> また、このプログラムはFROM氏の「DTXMania」を元に製作しています。
+## Acknowledgments
+Even though I have created and maintained the software that is the basis of TaikoShiba!
+I'd like to express my gratitude to amazing people and give them a name:
 
-## 謝辞
-このTaikoShibapのもととなるソフトウェアを作成・メンテナンスしてきた中でも  
-有名な方々に感謝の意を表し、お名前を上げさせていただきたいと思います。
-
-- FROM/yyagi様
-- kairera0467様
-- AioiLight様
-- twopointzero様
-- Mr-Ojii様
-
-また、他のTJAPlayer関係のソースコードを参考にさせてもらっている箇所があります。  
-ありがとうございます。
+➤ FROM / yyagi
+➤ kairera0467
+➤ Aioi Light
+➤ twopointzero
+➤ Mr-Ojii
+➤ TouhouRenRen
