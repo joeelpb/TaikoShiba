@@ -1,4 +1,4 @@
-# TaikoShiba! - By OGApollo
+# TaikoShiba! 太鼓柴 - By OGApollo
 
 ## [TJAPlayer2fPC] 
 	➤ (https://github.com/kairera0467/TJAP2fPC)
