@@ -25,9 +25,9 @@
 Even though I have created and maintained the software that is the basis of TaikoShiba!
 I'd like to express my gratitude to amazing people and give them a name:
 
-➤ FROM / yyagi
-➤ kairera0467
-➤ Aioi Light
-➤ twopointzero
-➤ Mr-Ojii
-➤ TouhouRenRen
+	➤ FROM / yyagi
+	➤ kairera0467
+	➤ Aioi Light
+	➤ twopointzero
+	➤ Mr-Ojii
+	➤ TouhouRenRen
